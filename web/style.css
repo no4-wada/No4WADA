@@ -1,0 +1,24 @@
+body {
+    background-color: #fff;
+    }
+    p {
+    font-size: 30px;
+    color: black;
+    font-weight:bold
+    }
+    .btn_wrp{
+        position: relative;
+    }
+    button{
+        cursor: pointer;
+        font-weight:bold
+    }
+    .btn_add{
+        border: 1px solid #000;
+        width: 67px;
+        height: 40px;
+        position: absolute;
+        top: 112px;
+        right: 305px;
+        font-weight:bold
+    }
