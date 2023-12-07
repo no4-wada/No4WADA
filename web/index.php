@@ -5,14 +5,24 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="/style.css" type="text/css">
     <title>TodoList</title>
+    <script>
+      window.addEventListener("load", function () {
+      const btn_del = document.getElementById("btn_del");
+      btn_del.addEventListener("click", () => {
+       if (window.confirm("削除しますか？")) {
+         //削除の処理(接続)
+         location.href = "http://localhost:8000/del.php"; // ジャンプ
+        }
+      });
+      });
+    </script>
 </head>
  
 <body>
-     <script src="alert.js"></script>
     <p>ToDoList</p>
     <div class="btn-wrp">
       <button class="btn_add" onclick="location.href='add.php'" >追加</button>
-      <button class="btn_add" onclick="location.href='login.php'" >ログイン</button>
+      <!-- DBへ接続<button class="btn_log" onclick="location.href='login.php'" >ログイン</button> -->
     </div>
     <br>
     <br>

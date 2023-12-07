@@ -22,3 +22,12 @@ body {
         right: 305px;
         font-weight:bold
     }
+    .btn_back{
+        border: 1px solid #000;
+        width: 120px;
+        height: 75px;
+        position: absolute;
+        top: 112px;
+        right: 305px;
+        font-weight:bold
+    }
