@@ -9,7 +9,7 @@
  
 <body>
  <?php
-
+  $id = $_GET['Id'];
   try {
       // DB接続
       $pdo = new PDO(
@@ -27,7 +27,7 @@
       $stmt = $pdo->prepare('DELETE FROM TodoList WHERE id = :Id');
    
       // 値をセット
-      $stmt->bindValue(':Id', 3);
+      $stmt->bindValue(':Id', $id);
    
       // SQL実行
       $stmt->execute();

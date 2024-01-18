@@ -6,15 +6,13 @@
     <link rel="stylesheet" href="/style.css" type="text/css">
     <title>TodoList</title>
     <script>
-      window.addEventListener("load", function () {
-      const btn_del = document.getElementById("btn_del");
+    /*/  window.addEventListener("load", function () {
       btn_del.addEventListener("click", () => {
        if (window.confirm("削除しますか？")) {
          //削除の処理(接続)
-         location.href = "http://localhost:8000/del.php"; // ジャンプ
-        }
-      });
-      });
+         //location.href ={}
+      }});
+      }); /*/
     </script>
 </head>
  
@@ -65,8 +63,9 @@
             <td align="center"><?php echo $row["Text"] ?></td>
             <td><?php echo $row["Created"]?></td>
             <td><?php echo $row["Updated"]?></td>
-            <td> <div class="btn-wrp"><button id="btn_upd" onclick="location.href='update.php'" >編集</button>
-                 <br><button id="btn_del">削除</button></div>
+            <td>
+               <div class="btn-wrp"><button id="btn_upd" onclick="location.href='update.php?Id=<?php echo $row['Id'];?>'" >編集</button>
+               <br> <a href="del.php?Id=<?php echo $row['Id'];?>" ><button id="btn_del">削除</button></a></div>
             </td>
           </tr>
 		      
