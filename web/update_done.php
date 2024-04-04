@@ -1,12 +1,11 @@
 <?php
-    $id  = $_POST['id'];
-    $title  = $_POST['title'];
-    $Text = $_POST['Text'];
-    $Updated = date('Y-m-d H:i:s');
-    //$submit  = $_POST['submit'];
-    try {
+$Id  = $_POST['Id'];
+$Title  = $_POST['Title'];
+$Text = $_POST['Text'];
+$Updated = date('Y-m-d H:i:s');
+try {
     // DB接続
-    $pdo = new PDO(
+    $PDO = new PDO(
         // ホスト名、データベース名
         'mysql:host=host.docker.internal;dbname=TodoListSystem;',
         // ユーザー名
@@ -15,21 +14,20 @@
         '',
         // レコード列名をキーとして取得させる
         [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]
-        );
-        $stmt = $pdo->prepare('UPDATE TodoList SET Title = :title, Text = :Text, Updated = :Updated WHERE id = :id');
- 
-        // 値をセット
-        $stmt->bindValue(':id', $id);
-        
-        $stmt->bindValue(':title', $title);
-        $stmt->bindValue(':Text', $Text);
-        $stmt->bindValue(':Updated', $Updated);
-        // SQL実行
-        $stmt->execute();
-    } catch (PDOException $e) {
-        echo $e->getMessage();
-        die();
-    }
+    );
+    $Stmt = $PDO->prepare('UPDATE TodoList SET Title = :Title, Text = :Text, Updated = :Updated WHERE Id = :Id');
+
+    // 値をセット
+    $Stmt->bindValue(':Id', $Id);
+    $Stmt->bindValue(':Title', $Title);
+    $Stmt->bindValue(':Text', $Text);
+    $Stmt->bindValue(':Updated', $Updated);
+    // SQL実行
+    $Stmt->execute();
+} catch (PDOException $e) {
+    echo $e->getMessage();
+    die();
+}
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +46,7 @@
         <h1>編集完了画面</h1>
     </div>
     <div class="text-area">
-        <p>ID：<?php echo $id?>を編集しました。</p>
+        <p>ID：<?php echo $id ?>を編集しました。</p>
         <p><a href="index.php">メイン画面に戻ります。</a></p>
     </div>
 </body>
