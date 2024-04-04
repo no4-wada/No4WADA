@@ -4,24 +4,24 @@ body {
     p {
     font-size: 30px;
     color: black;
-    font-weight:bold
+    font-weight:bold;
     }
-    .btn_wrp{
+    .btn_wrp {
         position: relative;
     }
-    button{
+    button {
         border: 1px solid #000;
         cursor: pointer;
-        font-weight:bold
+        font-weight:bold;
     }
-    .btn_add{
+    .btn_add {
         width: 67px;
         height: 40px;
         position: absolute;
         top: 112px;
         right: 305px;
     }
-    .btn_back{
+    .btn_back {
         width: 120px;
         height: 75px;
         position: absolute;

@@ -26,19 +26,16 @@ try {
     $stmt = $PDO->prepare($sql); //値が空のままSQL文をセット
     $params = array(':Id' => $Id, ':Title' => $Title, ':Text' => $Text, ':Created' => $Created); // 挿入する値を配列に格納
     $stmt->execute($params); //挿入する値が入った変数をexecuteにセットしてSQLを実行
-    
-    // 登録内容確認・メッセージ
-    echo "<p>タイトル: " . $Title . "</p>";
-    echo "<p>内容: " . $Text . "</p>";
-    echo '<p>上記の内容をデータベースへ登録しました。</p>';
-?>
-    <div class="btn-back"><button onclick="location.href='index.php'" >TodoListへ戻る</button></div>
-<?php
 } catch (PDOException $e) {
-  exit('データベースに接続できませんでした。' . $e->getMessage());
+    exit('データベースに接続できませんでした。' . $e->getMessage());
 }
-?>
 
+// 登録内容確認・メッセージ
+echo "<p>タイトル: " . $Title . "</p>";
+echo "<p>内容: " . $Text . "</p>";
+echo '<p>上記の内容をデータベースへ登録しました。</p>';
+?>
+<div class="btn-back"><button onclick="location.href='index.php'" >TodoListへ戻る</button></div>
 </body>
  
 </html>

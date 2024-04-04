@@ -11,7 +11,6 @@
     <p>ToDoList</p>
     <div class="btn-wrp">
         <button class="btn_add" onclick="location.href='add.php'" >追加</button>
-        <!--DBへ接続<button class="btn_log" onclick="location.href='login.php'" >ログイン</button> -->
     </div>
     <br>
     <br>
@@ -38,7 +37,7 @@
         <tr bgcolor="#D3D3D3" style="height:36px;" align="center">
         <th width="100px">番号</th>
         <th width="150px">タイトル</th>
-        <th width="300px">内容</th>
+        <th width="500px">内容</th>
         <th width="250px">作成日</th>
         <th width="250px">更新日</th>
         <th width="150px"></th>

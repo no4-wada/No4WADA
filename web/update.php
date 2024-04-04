@@ -13,7 +13,7 @@ try {
     // DB接続
     $pdo = new PDO(
         // ホスト名、データベース名
-        'mysql:host=host.docker.interminal;dbname=TodoListSystem;',
+        'mysql:host=host.docker.internal;dbname=TodoListSystem;',
         // ユーザー名
         'root',
         // パスワード
@@ -48,9 +48,10 @@ $Title = $row['Title'];
 $Text = $row['Text'];
  
 ?>
+<p>ToDoList</p>
 <form action="update_done.php" method="post" >
-    <p> タイトル: <input type="text" class="input-area" name="title" placeholder="title" value="<?php echo $Title;?>"> </p>
-    <p> 内容: <input type="text" class="input-area" name="Text" placeholder="Text" value="<?php echo $Text;?>"> </p>
+    <p> タイトル: <br><input type="text" class="input-area" name="title" placeholder="title" required="required" value="<?php echo $Title;?>"> </p>
+    <p> 内容: <br><input type="text" class="input-area" name="Text" placeholder="Text" required="required" value="<?php echo $Text;?>"> </p>
     <input type="hidden" name="id" value="<?php echo $id; ?>">
     <input type="submit" value="更新">
 </form>
