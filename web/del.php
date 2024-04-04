@@ -14,7 +14,7 @@
       // DB接続
         $pdo = new PDO(
             // ホスト名、データベース名
-            'mysql:host=host.docker.interminal;dbname=TodoListSystem;',
+            'mysql:host=host.docker.internal;dbname=TodoListSystem;',
             // ユーザー名
             'root',
             // パスワード

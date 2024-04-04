@@ -17,10 +17,7 @@ try {
  
     $PDO = new PDO($dsn, $user, $password); //PDOでMySQLのデータベースに接続
     $PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); //PDOのエラーレポートを表示
- 
-    //input.phpの値を取得
-    #$Id = lastInsertId() + 1;
-    $Id = lastInsertId() + 1;
+    
     $Title = $_POST['title'];
     $Text = $_POST['text'];
     $Created = date('Y-m-d H:i:s');
@@ -29,7 +26,7 @@ try {
     $stmt = $PDO->prepare($sql); //値が空のままSQL文をセット
     $params = array(':Id' => $Id, ':Title' => $Title, ':Text' => $Text, ':Created' => $Created); // 挿入する値を配列に格納
     $stmt->execute($params); //挿入する値が入った変数をexecuteにセットしてSQLを実行
- 
+    
     // 登録内容確認・メッセージ
     echo "<p>タイトル: " . $Title . "</p>";
     echo "<p>内容: " . $Text . "</p>";
