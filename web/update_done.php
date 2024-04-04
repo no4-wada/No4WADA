@@ -8,7 +8,7 @@
     // DB接続
     $pdo = new PDO(
         // ホスト名、データベース名
-        'mysql:host=localhost;dbname=TodoListSystem;',
+        'mysql:host=host.docker.interminal;dbname=TodoListSystem;',
         // ユーザー名
         'root',
         // パスワード
@@ -27,8 +27,8 @@
         // SQL実行
         $stmt->execute();
     } catch (PDOException $e) {
-      echo $e->getMessage();
-      die();
+        echo $e->getMessage();
+        die();
     }
 ?>
 

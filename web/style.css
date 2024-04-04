@@ -10,24 +10,21 @@ body {
         position: relative;
     }
     button{
+        border: 1px solid #000;
         cursor: pointer;
         font-weight:bold
     }
     .btn_add{
-        border: 1px solid #000;
         width: 67px;
         height: 40px;
         position: absolute;
         top: 112px;
         right: 305px;
-        font-weight:bold
     }
     .btn_back{
-        border: 1px solid #000;
         width: 120px;
         height: 75px;
         position: absolute;
         top: 112px;
         right: 305px;
-        font-weight:bold
     }
