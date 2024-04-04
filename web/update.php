@@ -8,12 +8,12 @@
 </head>
 <body>
 <?php
- $id = $_GET['Id'];
- try {
+$id = $_GET['Id'];
+try {
     // DB接続
     $pdo = new PDO(
         // ホスト名、データベース名
-        'mysql:host=localhost;dbname=TodoListSystem;',
+        'mysql:host=host.docker.interminal;dbname=TodoListSystem;',
         // ユーザー名
         'root',
         // パスワード
@@ -36,24 +36,24 @@
         //var_dump($row);
     }
  
- } catch (PDOException $e) {
+} catch (PDOException $e) {
     // エラー発生
     echo $e->getMessage();
  
- } finally {
+} finally {
     // DBを閉じる
     $pdo = null;
- }
- $Title = $row['Title'];
- $Text = $row['Text'];
+}
+$Title = $row['Title'];
+$Text = $row['Text'];
  
- ?>
- <form action="update_done.php" method="post" >
- <p> タイトル: <input type="text" class="input-area" name="title" placeholder="title" value="<?php echo $Title;?>"> </p>
- <p> 内容: <input type="text" class="input-area" name="Text" placeholder="Text" value="<?php echo $Text;?>"> </p>
- <input type="hidden" name="id" value="<?php echo $id; ?>">
- <input type="submit" value="更新">
- </form>
+?>
+<form action="update_done.php" method="post" >
+    <p> タイトル: <input type="text" class="input-area" name="title" placeholder="title" value="<?php echo $Title;?>"> </p>
+    <p> 内容: <input type="text" class="input-area" name="Text" placeholder="Text" value="<?php echo $Text;?>"> </p>
+    <input type="hidden" name="id" value="<?php echo $id; ?>">
+    <input type="submit" value="更新">
+</form>
 
 </body>
 
