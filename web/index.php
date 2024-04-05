@@ -9,8 +9,10 @@
 
 <body>
     <p>ToDoList</p>
-    <button class="btn_add" onclick="location.href='add.php'">追加</button>
-    <br>
+    <div class "btn-wrp">
+        <button class="btn_add" onclick="location.href='add.php'">追加</button>
+
+    </div><br>
     <br>
     <?php
     //エスケープ処理の関数
@@ -53,20 +55,20 @@
             <tbody>
                 <tr>
                     <td>
-                        <div class="id"><?php echo $Row["Id"] ?></div>
+                        <div class="center"><?php echo $Row["Id"] ?></div>
                     </td>
                     <td>
-                        <div class="id"><?php echo change($Row["Title"]) ?></div>
+                        <div class="center"><?php echo change($Row["Title"]) ?></div>
                     </td>
                     <td><?php echo change($Row["Text"]) ?></td>
                     <td>
-                        <div class="id"><?php echo $Row["Created"] ?></div>
+                        <div class="center"><?php echo $Row["Created"] ?></div>
                     </td>
                     <td>
-                        <div class="id"><?php echo $Row["Updated"] ?></div>
+                        <div class="center"><?php echo $Row["Updated"] ?></div>
                     </td>
                     <td>
-                        <div class="btn-wrp id"><a href="update.php?Id=<?php echo $Row['Id']; ?>"><button id="btn_upd">編集</button></a>
+                        <div class="btn-wrp center"><a href="update.php?Id=<?php echo $Row['Id']; ?>"><button id="btn_upd">編集</button></a>
                             <br>
                             <a href="del.php?Id=<?php echo $Row['Id']; ?>"><button id="btn_del">削除</button></a>
                         </div>

@@ -19,8 +19,9 @@ body {
         height: 40px;
         position: absolute;
         top: 112px;
-        right: 900px;
+        right: 10px;
     }
+    
     .btn_back {
         width: 120px;
         height: 75px;
@@ -44,7 +45,7 @@ body {
         background-color:#ffffff;
         text-align : left;
     }
-    .id{
+    .center{
         text-align : center;
     }
     tr {
