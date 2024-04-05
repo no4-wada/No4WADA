@@ -24,7 +24,7 @@
     try {
         $Dbh = new PDO($Dsn, $User, $Password);
 
-        #  <!-- クエリの実行 -->
+        #  <!-- クエリの実行 (Mysqlへの接続)-->
         $Query = "SELECT * FROM TodoList";
         $Stmt = $Dbh->query($Query);
     } catch (PDOException $e) {
