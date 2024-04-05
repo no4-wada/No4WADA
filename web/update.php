@@ -23,7 +23,7 @@
             [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]
         );
 
-        // 条件指定したSQL文をセット
+        // Idで選択したカラムを持ってくる
         $Stmt = $PDO->prepare('SELECT * FROM TodoList WHERE Id = :Id');
 
         // 「:id」に対して値をセット
@@ -49,9 +49,9 @@
     ?>
     <p>ToDoList</p>
     <form action="update_done.php" method="post">
-        <p> タイトル: <br><input type="text" class="input-area" name="title" placeholder="title" required="required" value="<?php echo $Title; ?>"> </p>
+        <p> タイトル: <br><input type="text" class="input-area" name="Title" placeholder="title" required="required" value="<?php echo $Title; ?>"> </p>
         <p> 内容: <br><input type="text" class="input-area" name="Text" placeholder="Text" required="required" value="<?php echo $Text; ?>"> </p>
-        <input type="hidden" name="id" value="<?php echo $id; ?>">
+        <input type="hidden" name="Id" value="<?php echo $Id; ?>">
         <input type="submit" value="更新">
     </form>
 

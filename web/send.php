@@ -21,7 +21,7 @@
         $Title = $_POST['Title'];
         $Text = $_POST['Text'];
         $Created = date('Y-m-d H:i:s');
-
+        //インサートでデータの新規追加
         $Sql = "INSERT INTO TodoList (Id, Title, Text, Created) VALUES (:Id, :Title, :Text, :Created)"; // テーブルに登録するINSERT INTO文を変数に格納　VALUESはプレースフォルダーで空の値を入れとく
         $Stmt = $PDO->prepare($Sql); //値が空のままSQL文をセット
         $Params = array(':Id' => $Id, ':Title' => $Title, ':Text' => $Text, ':Created' => $Created); // 挿入する値を配列に格納
@@ -29,12 +29,12 @@
     } catch (PDOException $e) {
         exit('データベースに接続できませんでした。' . $e->getMessage());
     }
-
-    // 登録内容確認・メッセージ
-    echo "<p>タイトル: " . $Title . "</p>";
-    echo "<p>内容: " . $Text . "</p>";
-    echo '<p>上記の内容をデータベースへ登録しました。</p>';
     ?>
+    <!--登録内容確認・メッセージ -->
+    <p>タイトル: <?php echo $Title; ?></p>
+    <p>内容: <?php echo $Text; ?></p>
+    <p>上記の内容をデータベースへ登録しました。</p>
+
     <div class="btn-back"><button onclick="location.href='index.php'">TodoListへ戻る</button></div>
 </body>
 

@@ -15,6 +15,7 @@ try {
         // レコード列名をキーとして取得させる
         [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]
     );
+    //該当するデータを更新する
     $Stmt = $PDO->prepare('UPDATE TodoList SET Title = :Title, Text = :Text, Updated = :Updated WHERE Id = :Id');
 
     // 値をセット
@@ -46,7 +47,7 @@ try {
         <h1>編集完了画面</h1>
     </div>
     <div class="text-area">
-        <p>ID：<?php echo $id ?>を編集しました。</p>
+        <p>ID：<?php echo $Id ?>を編集しました。</p>
         <p><a href="index.php">メイン画面に戻ります。</a></p>
     </div>
 </body>
