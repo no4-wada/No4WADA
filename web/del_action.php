@@ -11,7 +11,6 @@
        <?php
         try {
             $Id = $_GET['Id'];
-            echo "$Id";
             // DB接続
             $PDO = new PDO(
                 // ホスト名、データベース名
@@ -31,7 +30,9 @@
             $Stmt->bindValue(':Id', $Id);
             // SQL実行
             $Stmt->execute();
-            echo '<p>削除しました</p>';
+        ?>
+           <p>削除しました</p>
+       <?php
         } catch (PDOException $e) {
             // エラー発生
             echo $e->getMessage();

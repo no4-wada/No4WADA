@@ -33,8 +33,8 @@
     }
     ?>
     <!--テーブルの作成-->
-    <table bgcolor="#a9a9a9" cellspacing="2px" style="font-size:18px;">
-        <tr bgcolor="#D3D3D3" style="height:36px;" align="center">
+    <table>
+        <tr>
             <th width="100px">番号</th>
             <th width="150px">タイトル</th>
             <th width="500px">内容</th>
@@ -43,22 +43,34 @@
             <th width="150px"></th>
         </tr>
         <?php
-        # <!-- 表示処理 -->
+        # <!-- テーブルデータ導入処理 -->
         while ($Row = $Stmt->fetch(PDO::FETCH_ASSOC)) {
         ?>
-            <tr bgcolor="white" style="height:36px;" align="center">
-                <td align="center"><?php echo $Row["Id"] ?></td>
-                <td align="center"><?php echo $Row["Title"] ?></td>
-                <td align="center"><?php echo $Row["Text"] ?></td>
-                <td><?php echo $Row["Created"] ?></td>
-                <td><?php echo $Row["Updated"] ?></td>
-                <td>
-                    <div class="btn-wrp"><button id="btn_upd" onclick="location.href='update.php?Id=<?php echo $Row['Id']; ?>'">編集</button>
-                        <br> <a href="del.php?Id=<?php echo $Row['Id']; ?>"><button id="btn_del">削除</button></a>
-                    </div>
-                </td>
-            </tr>
-
+            <thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="id"><?php echo $Row["Id"] ?></div>
+                    </td>
+                    <td>
+                        <div class="id"><?php echo $Row["Title"] ?></div>
+                    </td>
+                    <td><?php echo $Row["Text"] ?></td>
+                    <td>
+                        <div class="id"><?php echo $Row["Created"] ?></div>
+                    </td>
+                    <td>
+                        <div class="id"><?php echo $Row["Updated"] ?></div>
+                    </td>
+                    <td>
+                        <div class="btn-wrp id"><a href="update.php?Id=<?php echo $Row['Id']; ?>"><button id="btn_upd">編集</button></a>
+                            <br>
+                            <a href="del.php?Id=<?php echo $Row['Id']; ?>"><button id="btn_del">削除</button></a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+            </thead>
         <?php
         }
         #<!-- 接続を閉じる -->

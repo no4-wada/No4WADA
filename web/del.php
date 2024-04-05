@@ -10,8 +10,6 @@
 <body>
     <?php
     $Id = $_GET['Id'];
-    echo "$Id";
-    echo 'aa';
     ?>
     <p>本当に削除してよろしいですか？</p>
     <form action="del_action.php?Id=<?php echo $Id; ?>" method="post">

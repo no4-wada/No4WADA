@@ -14,12 +14,12 @@
         <div>
             <h2>タイトル</h2>
         </div>
-        <input type="text" name="title" required="required">
+        <input type="text" name="Title" required="required">
         <div>
             <h2> 内容</h2>
         </div>
-        <textarea name="text" cols="30" rows="5" required="required"></textarea>
-        <div class="btn-back">
+        <textarea name="Text" cols="30" rows="5" required="required"></textarea>
+        <div class="btn-plus">
             <input type="submit" value="追加">
         </div>
     </form>

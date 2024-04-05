@@ -28,3 +28,27 @@ body {
         top: 112px;
         right: 305px;
     }
+    .btn_plus {
+        width: 120px;
+        height: 75px;
+        position: absolute;
+        top: 112px;
+        right: 305px;
+    }
+    table{
+        background-color : #a9a9a9;
+        border-spacing : 2px;
+        font-size : 18px;
+    }
+    td {
+        background-color:#ffffff;
+        text-align : left;
+    }
+    .id{
+        text-align : center;
+    }
+    tr {
+        height: 36px;
+        text-align : center;
+        background-color:#D3D3D3;
+    }
