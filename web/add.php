@@ -8,6 +8,7 @@
 </head>
 
 <body>
+
     <!-- 内容入力　-->
     <h2>ToDoList</h2>
     <form method="post" action="send.php">
@@ -24,6 +25,7 @@
         </div>
     </form>
     <div class="btn-back"><button onclick="location.href='index.php'">TodoListへ戻る</button></div>
+
 </body>
 
 </html>

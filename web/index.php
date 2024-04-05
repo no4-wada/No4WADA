@@ -9,12 +9,15 @@
 
 <body>
     <p>ToDoList</p>
-    <div class="btn-wrp">
-        <button class="btn_add" onclick="location.href='add.php'">追加</button>
-    </div>
+    <button class="btn_add" onclick="location.href='add.php'">追加</button>
     <br>
     <br>
     <?php
+    //エスケープ処理の関数
+    function change($s)
+    {
+        return htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
+    }
     #Mysqlへの接続
     $Dsn      = 'mysql:dbname=TodoListSystem;host=host.docker.internal';
     $User     = 'root';
@@ -43,7 +46,7 @@
             <th width="150px"></th>
         </tr>
         <?php
-        # <!-- テーブルデータ導入処理 -->
+        # <!-- テーブルデータ導入処理(エスケープ処理含む) -->
         while ($Row = $Stmt->fetch(PDO::FETCH_ASSOC)) {
         ?>
             <thead>
@@ -53,9 +56,9 @@
                         <div class="id"><?php echo $Row["Id"] ?></div>
                     </td>
                     <td>
-                        <div class="id"><?php echo $Row["Title"] ?></div>
+                        <div class="id"><?php echo change($Row["Title"]) ?></div>
                     </td>
-                    <td><?php echo $Row["Text"] ?></td>
+                    <td><?php echo change($Row["Text"]) ?></td>
                     <td>
                         <div class="id"><?php echo $Row["Created"] ?></div>
                     </td>
