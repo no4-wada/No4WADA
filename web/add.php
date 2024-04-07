@@ -24,7 +24,7 @@
             <input type="submit" value="追加">
         </div>
     </form>
-    <div class="btn-back"><button onclick="location.href='index.php'">TodoListへ戻る</button></div>
+    <div class="btn-add"><button onclick="location.href='index.php'">TodoListへ戻る</button></div>
 
 </body>
 
