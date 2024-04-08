@@ -39,7 +39,7 @@
         $PDO = null;
       }
       ?>
-     <button onclick="location.href='index.php'">TodoListへ戻る</button>
+     <button onclick="location.href='todo_list_page.php'">TodoListへ戻る</button>
    </body>
 
    </html>
