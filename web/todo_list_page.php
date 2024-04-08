@@ -54,10 +54,10 @@
             <div class="left"><?php echo escape($Row["Text"]) ?></div>
           </td>
           <td>
-            <?php echo $Row["Created"] ?></div>
+            <?php echo $Row["Created"] ?>
           </td>
           <td>
-            <div class="center"><?php echo $Row["Updated"] ?></div>
+            <?php echo $Row["Updated"] ?>
           </td>
           <td>
             <div class="btn-wrp">
@@ -68,7 +68,7 @@
           </td>
         </tr>
       </tbody>
-
+      </thead>
     <?php
     }
     #<!-- 接続を閉じる -->
