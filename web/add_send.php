@@ -71,7 +71,7 @@
 
   <p>上記の内容をデータベースへ登録しました。</p>
 
-  <div class="btn-back"><button onclick="location.href='todo_list_page.php'">TodoListへ戻る</button></div>
+  <button onclick="location.href='todo_list_page.php'">TodoListへ戻る</button>
 
 </body>
 
