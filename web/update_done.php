@@ -1,6 +1,6 @@
 <?php
 //エスケープ処理の関数
-function change($s)
+function escape($s)
 {
     return htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
 }
