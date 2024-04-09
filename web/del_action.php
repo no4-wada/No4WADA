@@ -9,26 +9,17 @@
 
    <body>
      <?php
+      //functions.phpの読み込み
+      require_once("functions.php");
+      //connect.phpの読み込み
+      require_once("connect.php");
 
+      $Id = $_GET['Id'];
+      $arr_ini = parse_ini_file("test.ini", true);
+      $Dsn      = $arr_ini["Login"]["DSN"];
+      $User     = $arr_ini["Login"]["User"];
+      $Password = $arr_ini["Login"]["Password"];
       try {
-        $Id = $_GET['Id'];
-
-        // DB接続
-        $PDO = new PDO(
-
-          // ホスト名、データベース名
-          'mysql:host=host.docker.internal;dbname=TodoListSystem;',
-
-          // ユーザー名
-          'root',
-
-          // パスワード
-          '',
-
-          // レコード列名をキーとして取得させる
-          [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]
-        );
-
         // SQL文をセット(該当idのカラムを削除する)
         $Stmt = $PDO->prepare('DELETE FROM TodoList WHERE Id = :Id');
 

@@ -9,19 +9,11 @@
 
 <body>
     <?php
+    // PDO接続、関数ファイルの読み込み
     $Id = $_GET['Id'];
+    require_once("connect.php");
+    require_once("functions.php");
     try {
-        // DB接続
-        $PDO = new PDO(
-            // ホスト名、データベース名
-            'mysql:host=host.docker.internal;dbname=TodoListSystem;',
-            // ユーザー名
-            'root',
-            // パスワード
-            '',
-            // レコード列名をキーとして取得させる
-            [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]
-        );
 
         // Idで選択したカラムを持ってくる
         $Stmt = $PDO->prepare('SELECT * FROM TodoList WHERE Id = :Id');
@@ -54,7 +46,7 @@
         <input type="hidden" name="Id" value="<?php echo $Id; ?>">
         <input type="submit" value="更新">
     </form>
-
+    <button onclick="location.href='index.php'">TodoListへ戻る</button>
 </body>
 
 </html>

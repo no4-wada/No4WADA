@@ -1,31 +1,30 @@
 <?php
-//エスケープ処理の関数
-function change($s)
-{
-    return htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
-}
+// PDO接続、関数ファイルの読み込み
+require_once("connect.php");
+require_once("functions.php");
 $Id  = $_POST['Id'];
 $Title  = $_POST['Title'];
 $Text = $_POST['Text'];
 $UpdateDate = date('Y-m-d H:i:s');
 //エスケープ処理(入力制限)
-$CheckTitle = preg_match('/\A[[:^cntrl:]]{1,20}+\z/u', $Title);
-$CheckText = preg_match('/\A[[:^cntrl:]]{1,200}+\z/u', $Text);
+$CheckTitle = check($Title);
+$CheckText = check($Text);
 try {
-    if ($CheckTitle == 0 || $CheckText == 0) {
-        echo 'タイトル20文字、内容は200文字までです。';
+    if ($CheckTitle == 0) {
+
+        echo 'タイトルが20文字を超えている、もしくは使用できない文字を含んでいます。';
+?>
+        <div class="btn_back"><button onclick="location.href='index.php'">TodoListへ戻る</button></div>
+    <?php
+        exit();
+    } else if ($CheckText == 0) {
+        echo '内容が200文字を超えている、もしくは使用できない文字を含んでいます。';
+        echo 'タイトルが20文字を超えている、もしくは使用できない文字を含んでいます。';
+    ?>
+        <div class="btn_back"><button onclick="location.href='index.php'">TodoListへ戻る</button></div>
+<?php
+        exit();
     } else {
-        // DB接続
-        $PDO = new PDO(
-            // ホスト名、データベース名
-            'mysql:host=host.docker.internal;dbname=TodoListSystem;',
-            // ユーザー名
-            'root',
-            // パスワード
-            '',
-            // レコード列名をキーとして取得させる
-            [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]
-        );
         //該当するデータを更新する
         $Stmt = $PDO->prepare('UPDATE TodoList SET Title = :Title, Text = :Text, Updated = :UpdateDate WHERE Id = :Id');
 

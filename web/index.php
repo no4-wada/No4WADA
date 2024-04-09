@@ -12,23 +12,16 @@
     <button class="btn_add" onclick="location.href='add.php'">追加</button>
     <br>
     <?php
-    //エスケープ処理の関数
-    function change($s)
-    {
-        return htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
-    }
-    #Mysqlへの接続
-    $Dsn      = 'mysql:dbname=TodoListSystem;host=host.docker.internal';
-    $User     = 'root';
-    $Password = '';
+
+    // PDO接続、関数ファイルの読み込み
+    require_once("connect.php");
+    require_once("functions.php");
 
     #<!-- DBへ接続-->
     try {
-        $Dbh = new PDO($Dsn, $User, $Password);
-
         #  <!-- クエリの実行 (Mysqlへの接続)-->
         $Query = "SELECT * FROM TodoList";
-        $Stmt = $Dbh->query($Query);
+        $Stmt = $PDO->query($Query);
     } catch (PDOException $e) {
         print("データベースの接続に失敗しました" . $e->getMessage());
         die();
