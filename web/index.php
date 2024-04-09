@@ -9,9 +9,8 @@
 
 <body>
     <p>ToDoList</p>
-    <div class "btn-wrp">
+    <div class="btn-wrp">
         <button class="btn_add" onclick="location.href='add.php'">追加</button>
-
     </div><br>
     <br>
     <?php
@@ -39,19 +38,21 @@
     ?>
     <!--テーブルの作成-->
     <table>
-        <tr>
-            <th width="100px">番号</th>
-            <th width="150px">タイトル</th>
-            <th width="500px">内容</th>
-            <th width="250px">作成日</th>
-            <th width="250px">更新日</th>
-            <th width="150px"></th>
-        </tr>
+        <thead>
+            <tr>
+                <th width="100px">番号</th>
+                <th width="150px">タイトル</th>
+                <th width="500px">内容</th>
+                <th width="250px">作成日</th>
+                <th width="250px">更新日</th>
+                <th width="150px"></th>
+            </tr>
+        </thead>
+
         <?php
         # <!-- テーブルデータ導入処理(エスケープ処理含む) -->
         while ($Row = $Stmt->fetch(PDO::FETCH_ASSOC)) {
         ?>
-            <thead>
             <tbody>
                 <tr>
                     <td>
@@ -75,7 +76,6 @@
                     </td>
                 </tr>
             </tbody>
-            </thead>
         <?php
         }
         #<!-- 接続を閉じる -->

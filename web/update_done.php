@@ -7,7 +7,7 @@ function change($s)
 $Id  = $_POST['Id'];
 $Title  = $_POST['Title'];
 $Text = $_POST['Text'];
-$Updated = date('Y-m-d H:i:s');
+$UpdateDate = date('Y-m-d H:i:s');
 //エスケープ処理(入力制限)
 $CheckTitle = preg_match('/\A[[:^cntrl:]]{1,20}+\z/u', $Title);
 $CheckText = preg_match('/\A[[:^cntrl:]]{1,200}+\z/u', $Text);
@@ -27,13 +27,13 @@ try {
             [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]
         );
         //該当するデータを更新する
-        $Stmt = $PDO->prepare('UPDATE TodoList SET Title = :Title, Text = :Text, Updated = :Updated WHERE Id = :Id');
+        $Stmt = $PDO->prepare('UPDATE TodoList SET Title = :Title, Text = :Text, Updated = :UpdateDate WHERE Id = :Id');
 
         // 値をセット
         $Stmt->bindValue(':Id', $Id);
         $Stmt->bindValue(':Title', $Title);
         $Stmt->bindValue(':Text', $Text);
-        $Stmt->bindValue(':Updated', $Updated);
+        $Stmt->bindValue(':UpdateDate', $UpdateDate);
         // SQL実行
         $Stmt->execute();
     }
