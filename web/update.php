@@ -41,7 +41,7 @@
         echo $e->getMessage();
     } finally {
         // DBを閉じる
-        $pdo = null;
+        $PDO = null;
     }
     $Title = $row['Title'];
     $Text = $row['Text'];

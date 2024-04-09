@@ -35,12 +35,19 @@
 
     $CheckText = preg_match('/\A[[:^cntrl:]]{1,200}+\z/u', $Text);
 
-    if ($CheckTitle == 0 || $CheckText == 0) {
+    if ($CheckTitle == 0) {
 
-      echo '入力文字数制限を超えています。';
+      echo 'タイトルが20文字を超えている、もしくは使用できない文字を含んでいます。';
       exit();
   ?>
-      <div class="btn-back"><button onclick="location.href='index.php'">TodoListへ戻る</button></div>
+      <div class="btn_back"><button onclick="location.href='index.php'">TodoListへ戻る</button></div>
+
+    <?php
+    } else if ($CheckText == 0) {
+      echo '内容が200文字を超えている、もしくは使用できない文字を含んでいます。';
+      exit();
+    ?>
+      <div class="btn_back"><button onclick="location.href='index.php'">TodoListへ戻る</button></div>
 
   <?php
     } else {
@@ -71,7 +78,7 @@
 
   <p>上記の内容をデータベースへ登録しました。</p>
 
-  <div class="btn-back"><button onclick="location.href='index.php'">TodoListへ戻る</button></div>
+  <div class="btn_back"><button onclick="location.href='index.php'">TodoListへ戻る</button></div>
 
 </body>
 

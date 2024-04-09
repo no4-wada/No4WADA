@@ -9,10 +9,7 @@
 
 <body>
     <p>ToDoList</p>
-    <div class "btn-wrp">
-        <button class="btn_add" onclick="location.href='add.php'">追加</button>
-
-    </div><br>
+    <button class="btn_add" onclick="location.href='add.php'">追加</button>
     <br>
     <?php
     //エスケープ処理の関数
