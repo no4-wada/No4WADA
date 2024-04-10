@@ -9,38 +9,32 @@
 
 <body>
   <?php
-  //エスケープ処理の関数
-  function escape($s)
-  {
-    return htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
-  }
+  // PDO接続、関数ファイルの読み込み
+  require_once("connect.php");
+  require_once("security.php");
   try {
-    //DB名、ユーザー名、パスワードを変数に格納
-    $Dsn = "mysql:dbname=TodoListSystem;host=host.docker.internal";
-    $User = 'root';
-    $Password = '';
-
-    //PDOでMySQLのデータベースに接続
-    $PDO = new PDO($Dsn, $User, $Password);
-
-    //PDOのエラーレポートを表示
-    $PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
     $Title = $_POST['Title'];
     $Text = $_POST['Text'];
     $Created = date('Y-m-d H:i:s');
 
     //バリテーション処理(入力制限)
-    $CheckTitle = preg_match('/\A[[:^cntrl:]]{1,20}+\z/u', $Title);
+    $CheckTitle = check($Title);
 
-    $CheckText = preg_match('/\A[[:^cntrl:]]{1,200}+\z/u', $Text);
+    $CheckText = check($Text);
 
-    if ($CheckTitle == 0 || $CheckText == 0) {
+    if ($CheckTitle == 0) {
 
-      echo '入力文字数制限を超えています。';
+      echo 'タイトルが20文字を超えている、もしくは使用できない文字を含んでいます。';
       exit();
   ?>
-      <div class="btn-back"><button onclick="location.href='index.php'">TodoListへ戻る</button></div>
+      <div class="btn_back"><button onclick="location.href='index.php'">TodoListへ戻る</button></div>
+
+    <?php
+    } else if ($CheckText == 0) {
+      echo '内容が200文字を超えている、もしくは使用できない文字を含んでいます。';
+      exit();
+    ?>
+      <div class="btn_back"><button onclick="location.href='index.php'">TodoListへ戻る</button></div>
 
   <?php
     } else {
@@ -71,7 +65,7 @@
 
   <p>上記の内容をデータベースへ登録しました。</p>
 
-  <div class="btn-back"><button onclick="location.href='index.php'">TodoListへ戻る</button></div>
+  <button onclick="location.href='index.php'">TodoListへ戻る</button>
 
 </body>
 

@@ -9,11 +9,14 @@
 
 <body>
     <p>ToDoList</p>
-    <button class="btn-add" onclick="location.href='add.php'">追加</button>
+    <div class "btn-wrp">
+        <button class="btn_add" onclick="location.href='add.php'">追加</button>
+
+    </div><br>
     <br>
     <?php
     //エスケープ処理の関数
-    function escape($s)
+    function change($s)
     {
         return htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
     }
@@ -26,9 +29,9 @@
     try {
         $Dbh = new PDO($Dsn, $User, $Password);
 
-        #  <!-- クエリの実行 (Mysqlからデータの抽出)-->
+        #  <!-- クエリの実行 (Mysqlへの接続)-->
         $Query = "SELECT * FROM TodoList";
-        $Stmt = $Dbh->query($Query);
+        $Stmt = $PDO->query($Query);
     } catch (PDOException $e) {
         print("データベースの接続に失敗しました" . $e->getMessage());
         die();
