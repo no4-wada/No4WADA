@@ -12,7 +12,7 @@
     // PDO接続、関数ファイルの読み込み
     $Id = $_GET['Id'];
     require_once("connect.php");
-    require_once("functions.php");
+    require_once("security.php");
     try {
 
         // Idで選択したカラムを持ってくる
