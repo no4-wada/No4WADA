@@ -50,13 +50,9 @@ try {
 </head>
 
 <body>
-    <div class="title-area">
-        <h1>編集完了画面</h1>
-    </div>
-    <div class="text-area">
-        <p>ID：<?php echo $Id ?>を編集しました。</p>
-        <p><a href="index.php">メイン画面に戻ります。</a></p>
-    </div>
+    <h1>編集完了画面</h1>
+    <p>ID：<?php echo $Id ?>を編集しました。</p>
+    <p><a href="index.php">メイン画面に戻ります。</a></p>
 </body>
 
 </html>

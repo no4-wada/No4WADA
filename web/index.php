@@ -9,7 +9,7 @@
 
 <body>
     <p>ToDoList</p>
-    <button class="btn_add" onclick="location.href='add.php'">追加</button>
+    <button class="btn-add" onclick="location.href='add.php'">追加</button>
     <br>
     <?php
     //エスケープ処理の関数
@@ -35,7 +35,7 @@
     }
     ?>
     <!--テーブルの作成-->
-    <table class="todo_list">
+    <table class="todo-list">
         <thead>
             <tr>
                 <th width="100px">番号</th>
