@@ -11,7 +11,7 @@
   <?php
   // PDO接続、関数ファイルの読み込み
   require_once("connect.php");
-  require_once("functions.php");
+  require_once("security.php");
   try {
     $Title = $_POST['Title'];
     $Text = $_POST['Text'];
