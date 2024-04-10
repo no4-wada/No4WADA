@@ -11,7 +11,7 @@
 
   <!-- 内容入力　-->
   <h2>ToDoList</h2>
-  <form method="post" action="send.php">
+  <form method="post" action="add_send.php">
     <div>
       <h2>タイトル</h2>
     </div>
@@ -23,7 +23,7 @@
     <br>
     <input type="submit" value="追加">
   </form>
-  <button onclick="location.href='index.php'">TodoListへ戻る</button>
+  <button onclick="location.href='todo_list_page.php'">TodoListへ戻る</button>
 
 </body>
 
