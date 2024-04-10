@@ -69,9 +69,10 @@
                         <?php echo $Row["Updated"] ?>
                     </td>
                     <td>
-                        <div class="btn_wrp"><a href="update.php?Id=<?php echo $Row['Id']; ?>"><button id="btn_upd">編集</button></a>
+                        <div class="btn_wrp">
+                            <a href="update.php?Id=<?php echo $Row['Id']; ?>"><span class="btn_not_upd">編集</span></a>
                             <br>
-                            <a href="del.php?Id=<?php echo $Row['Id']; ?>"><button id="btn_del">削除</button></a>
+                            <a href="del.php?Id=<?php echo $Row['Id']; ?>"><span class="btn_del">削除</span></a>
                         </div>
                     </td>
                 </tr>
