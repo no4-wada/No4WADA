@@ -40,7 +40,7 @@
       echo '入力文字数制限を超えています。';
       exit();
   ?>
-      <div class="btn-back"><button onclick="location.href='index.php'">TodoListへ戻る</button></div>
+      <div class="btn_back"><button onclick="location.href='index.php'">TodoListへ戻る</button></div>
 
   <?php
     } else {
@@ -71,7 +71,7 @@
 
   <p>上記の内容をデータベースへ登録しました。</p>
 
-  <div class="btn-back"><button onclick="location.href='index.php'">TodoListへ戻る</button></div>
+  <button onclick="location.href='index.php'">TodoListへ戻る</button>
 
 </body>
 
