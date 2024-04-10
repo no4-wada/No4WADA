@@ -1,23 +1,26 @@
 body {
   background-color: #fff;
 }
+
 p {
   font-size: 30px;
   color: black;
   font-weight: bold;
 }
-.btn-wrp {
+
+.btn_wrp {
   position: relative;
 }
+
 button {
   border: 1px solid #000;
   cursor: pointer;
   font-weight: bold;
 }
 
-.btn-add {
-  width: 60px;
-  height: 35px;
+.btn_add {
+  width: 67px;
+  height: 40px;
   position: absolute;
   top: 90px;
   right: 10px;
@@ -30,6 +33,10 @@ button {
   right: 305px;
 }
 
+.btn_not_remove {
+  color: #a9a9a9;
+}
+
 .todo-list {
   background-color: #a9a9a9;
   border: 1px;
@@ -37,11 +44,13 @@ button {
 }
 td {
   background-color: #ffffff;
-  text-align: left;
-}
-.center {
   text-align: center;
 }
+
+.left {
+  text-align: left;
+}
+
 tr {
   height: 36px;
   text-align: center;

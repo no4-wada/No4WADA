@@ -46,7 +46,9 @@
     </form>
 
     <!-- リストへ戻るボタン -->
-    <a href="index.php"><button name="btn_not_remove">いいえ</button></a>
+    <div class="btn_back">
+        <a href="index.php"><span class="btn_not_remove">いいえ</span></a>
+    </div>
 </body>
 
 </html>

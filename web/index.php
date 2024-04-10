@@ -9,10 +9,7 @@
 
 <body>
     <p>ToDoList</p>
-    <div class "btn-wrp">
-        <button class="btn_add" onclick="location.href='add.php'">追加</button>
-
-    </div><br>
+    <button class="btn_add" onclick="location.href='add.php'">追加</button>
     <br>
     <?php
     //エスケープ処理の関数
@@ -48,41 +45,43 @@
                 <th width="250px">更新日</th>
                 <th width="150px"></th>
             </tr>
-            <?php
-            # <!-- テーブルデータ導入処理(エスケープ処理含む) -->
-            while ($Row = $Stmt->fetch(PDO::FETCH_ASSOC)) {
-            ?>
         </thead>
-        <tbody>
-            <tr>
-                <td>
-                    <div class="center"><?php echo $Row["Id"] ?></div>
-                </td>
-                <td>
-                    <div class="center"><?php echo escape($Row["Title"]) ?></div>
-                </td>
-                <td><?php echo escape($Row["Text"]) ?></td>
-                <td>
-                    <div class="center"><?php echo $Row["Created"] ?></div>
-                </td>
-                <td>
-                    <div class="center"><?php echo $Row["Updated"] ?></div>
-                </td>
-                <td>
-                    <div class="btn-wrp center">
-                        <a href="update.php?Id=<?php echo $Row['Id']; ?>">編集</a>
-                        <br>
-                        <a href="del.php?Id=<?php echo $Row['Id']; ?>">削除</a>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
+        <?php
+        # <!-- テーブルデータ導入処理(エスケープ処理含む) -->
+        while ($Row = $Stmt->fetch(PDO::FETCH_ASSOC)) {
+        ?>
+            <tbody>
+                <tr>
+                    <td>
+                        <?php echo $Row["Id"] ?>
+                    </td>
+                    <td>
+                        <?php echo escape($Row["Title"]) ?>
+                    </td>
+                    <td>
+                        <div class="left"><?php echo escape($Row["Text"]) ?></div>
+                    </td>
+                    <td>
+                        <?php echo $Row["Created"] ?></div>
+                    </td>
+                    <td>
+                        <div class="center"><?php echo $Row["Updated"] ?></div>
+                    </td>
+                    <td>
+                        <div class="btn-wrp">
+                            <a href="update.php?Id=<?php echo $Row['Id']; ?>"><span class="btn_not_upd">編集</span></a>
+                            <br>
+                            <a href="del.php?Id=<?php echo $Row['Id']; ?>"><span class="btn_del">削除</span></a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
 
-    <?php
-            }
-            #<!-- 接続を閉じる -->
-            $Dbh = null;
-    ?>
+        <?php
+        }
+        #<!-- 接続を閉じる -->
+        $Dbh = null;
+        ?>
     </table>
 </body>
 
