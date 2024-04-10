@@ -7,21 +7,21 @@ $Title  = $_POST['Title'];
 $Text = $_POST['Text'];
 $UpdateDate = date('Y-m-d H:i:s');
 //エスケープ処理(入力制限)
-$CheckTitle = check($Title);
-$CheckText = check($Text);
+$CheckTitle = check_title($Title);
+$CheckText = check_text($Text);
 try {
   if ($CheckTitle == 0) {
-
-    echo 'タイトルが20文字を超えている、もしくは使用できない文字を含んでいます。';
 ?>
-    <div class="btn_back"><button onclick="location.href='todo_list_page.php'">TodoListへ戻る</button></div>
+    <p>タイトルが20文字を超えている、もしくは使用できない文字を含んでいます。</p>
+
+    <p><a href="todo_list_page.php">TodoListへ戻る</a></p>
   <?php
     exit();
   } else if ($CheckText == 0) {
-    echo '内容が200文字を超えている、もしくは使用できない文字を含んでいます。';
-    echo 'タイトルが20文字を超えている、もしくは使用できない文字を含んでいます。';
   ?>
-    <div class="btn_back"><button onclick="location.href='todo_list_page.php'">TodoListへ戻る</button></div>
+    <p> 内容が200文字を超えている、もしくは使用できない文字を含んでいます。</p>
+
+    <p><a href="todo_list_page.php">TodoListへ戻る</a></p>
 <?php
     exit();
   } else {

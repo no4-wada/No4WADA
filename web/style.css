@@ -5,8 +5,6 @@ body {
 
 }
 
-
-
 /*戻るリンクの設定*/
 .btn_not_remove {
   color: #a9a9a9;
@@ -53,7 +51,7 @@ button {
 }
 
 /*テーブルのヘッダーの文字設定*/
-th{
+th {
     color : #fff;
 }
 
@@ -71,6 +69,6 @@ td {
 }
 
 /*内容部分の設定*/
-.left{
+.left {
     text-align : left;
 }

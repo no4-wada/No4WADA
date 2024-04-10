@@ -27,9 +27,9 @@
   $Created = date('Y-m-d H:i:s');
 
   //バリテーション処理(入力制限)
-  $CheckTitle = preg_match('/\A[[:^cntrl:]]{1,20}+\z/u', $Title);
+  $CheckTitle = check_title($Title);
 
-  $CheckText = preg_match('/\A[[:^cntrl:]]{1,200}+\z/u', $Text);
+  $CheckText = check_text($Text);
 
   if ($CheckTitle == 0 || $CheckText == 0) {
 
@@ -63,7 +63,7 @@
 
   <p>上記の内容をデータベースへ登録しました。</p>
 
-  <button onclick="location.href='todo_list_page.php'">TodoListへ戻る</button>
+  <a href="todo_list_page.php">TodoListへ戻る</a>
 
 </body>
 

@@ -12,6 +12,7 @@
     // PDO接続、関数ファイルの読み込み
     $Id = $_GET['Id'];
     require_once("connect.php");
+    require_once("security.php");
     try {
 
       // Idで選択したカラムを持ってくる
@@ -38,16 +39,16 @@
    <p>本当に削除してよろしいですか？</p>
 
    <form action="delete_action.php?Id=<?php echo $Id; ?>" method="post">
-     <p> タイトル: <?php echo $Title; ?>
-     <p> 内容: <?php echo $Text; ?>
-       <br>
-       <!-- 削除　-->
-       <input type="submit" name="remove" value="削除">
+     <p> タイトル: <?php echo escape($Title); ?></p>
+     <p> 内容: <?php echo escape($Text); ?></p>
+     <br>
+     <!-- 削除　-->
+     <input type="submit" name="remove" value="削除">
    </form>
 
    <!-- リストへ戻るボタン -->
    <div class="btn_back">
-     <a href="todo_list_page.php"><span class="btn_not_remove">いいえ</span></a>
+     <button onclick="location.href='todo_list_page.php'">いいえ</button>
    </div>
  </body>
 
