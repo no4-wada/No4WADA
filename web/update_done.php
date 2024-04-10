@@ -1,9 +1,4 @@
 <?php
-//エスケープ処理の関数
-function change($s)
-{
-    return htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
-}
 $Id  = $_POST['Id'];
 $Title  = $_POST['Title'];
 $Text = $_POST['Text'];

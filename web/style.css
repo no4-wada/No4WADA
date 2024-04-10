@@ -1,55 +1,53 @@
 body {
-    background-color: #fff;
-    }
-    p {
-    font-size: 30px;
-    color: black;
-    font-weight:bold;
-    }
-    .btn_wrp {
-        position: relative;
-    }
-    button {
-        border: 1px solid #000;
-        cursor: pointer;
-        font-weight:bold;
-    }
-    .btn_add {
-        width: 67px;
-        height: 40px;
-        position: absolute;
-        top: 112px;
-        right: 10px;
-    }
-    
-    .btn_back {
-        width: 120px;
-        height: 75px;
-        position: absolute;
-        top: 112px;
-        right: 305px;
-    }
-    .btn_plus {
-        width: 120px;
-        height: 75px;
-        position: absolute;
-        top: 112px;
-        right: 305px;
-    }
-    table{
-        background-color : #a9a9a9;
-        border-spacing : 2px;
-        font-size : 18px;
-    }
-    td {
-        background-color:#ffffff;
-        text-align : left;
-    }
-    .center{
-        text-align : center;
-    }
-    tr {
-        height: 36px;
-        text-align : center;
-        background-color:#D3D3D3;
-    }
+  background-color: #fff;
+}
+p {
+  font-size: 30px;
+  color: black;
+  font-weight: bold;
+}
+.btn_wrp {
+  position: relative;
+}
+button {
+  border: 1px solid #000;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn_add {
+  position: absolute;
+  top: 90px;
+  right: 305px;
+}
+.btn_back {
+  width: 120px;
+  height: 75px;
+  position: absolute;
+  top: 112px;
+  right: 305px;
+}
+.btn_plus {
+  width: 120px;
+  height: 75px;
+  position: absolute;
+  top: 112px;
+  right: 305px;
+}
+.todo_list {
+  background-color: #a9a9a9;
+  border-spacing: 1px;
+  font-size: 18px;
+}
+td {
+  background-color: #ffffff;
+  text-align: left;
+}
+.center {
+  text-align: center;
+}
+tr {
+  height: 36px;
+  text-align: center;
+  background-color: #d3d3d3;
+}

@@ -10,7 +10,7 @@
 <body>
   <?php
   //エスケープ処理の関数
-  function change($s)
+  function escape($s)
   {
     return htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
   }
@@ -46,10 +46,10 @@
     } else {
 
       // テーブルに登録するINSERT INTO文を変数に格納　VALUESはプレースフォルダーで空の値を入れとく            
-      $Sql = "INSERT INTO TodoList (Id, Title, Text, Created) VALUES (:Id, :Title, :Text, :Created)";
+      $Query = "INSERT INTO TodoList (Id, Title, Text, Created) VALUES (:Id, :Title, :Text, :Created)";
 
       //値が空のままSQL文をセット
-      $Stmt = $PDO->prepare($Sql);
+      $Stmt = $PDO->prepare($Query);
 
       // 挿入する値を配列に格納
       $Params = array(':Id' => $Id, ':Title' => $Title, ':Text' => $Text, ':Created' => $Created);
@@ -65,9 +65,9 @@
 
   <!--登録内容確認・メッセージ (エスケープ処理含む)-->
 
-  <p>タイトル: <?php echo change($Title); ?></p>
+  <p>タイトル: <?php echo escape($Title); ?></p>
 
-  <p>内容: <?php echo change($Text); ?></p>
+  <p>内容: <?php echo escape($Text); ?></p>
 
   <p>上記の内容をデータベースへ登録しました。</p>
 
