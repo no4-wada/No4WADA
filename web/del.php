@@ -24,9 +24,7 @@
     </form>
 
     <!-- リストへ戻るボタン -->
-    <div class="btn-back">
-        <button name="notremove"><a href="index.php">いいえ</a></button>
-    </div>
+    <button name="notremove"><a href="index.php">いいえ</a></button>
 </body>
 
 </html>
