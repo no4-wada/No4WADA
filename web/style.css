@@ -29,13 +29,7 @@ button {
   top: 112px;
   right: 305px;
 }
-.btn-plus {
-  width: 120px;
-  height: 75px;
-  position: absolute;
-  top: 112px;
-  right: 305px;
-}
+
 .todo-list {
   background-color: #a9a9a9;
   border: 1px;
