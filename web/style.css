@@ -1,26 +1,15 @@
-
-.btn_not_remove {
-  color: #a9a9a9;
-}
-
-.todo-list {
-  background-color : #6bd0ff;
-  border: 1px;
-  font-size: 18px;
-}
-
-
-tr {
-  height: 36px;
-  text-align: center;
-  background-color:#30beff;
-}
-
 /*body全体の設定*/
 body {
     background-color: #fff;
     font-family: arial, sans-serif;
 
+}
+
+
+
+/*戻るリンクの設定*/
+.btn_not_remove {
+  color: #a9a9a9;
 }
 
 /*pタグの文字サイズ指定*/
@@ -51,24 +40,28 @@ button {
     right: 12px;
 }
 
-
 /*テーブル全体の設定*/
+.todo_list {
+  background-color : #6bd0ff;
+  border: 1px;
+  font-size: 18px;
+}
 
 /*テーブル上にマウスがあると色が変わる処理*/
-.todo-list tr:hover td {
+.todo_list tr:hover td {
 	background-color: #d9efff;
 }
 
-/*テーブル見出しの文字設定*/
+/*テーブルのヘッダーの文字設定*/
 th{
     color : #fff;
 }
 
-/*テーブル見出しの設定*/
+/*テーブルの見出しの設定*/
 tr {
-    height: 36px;
-    text-align : center;
-    background-color:#30beff;
+  height: 36px;
+  text-align: center;
+  background-color:#30beff;
 }
 
 /*テーブルデータ部分の設定*/

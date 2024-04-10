@@ -27,7 +27,7 @@
   }
   ?>
   <!--テーブルの作成-->
-  <table class="todo-list">
+  <table class="todo_list">
     <thead>
       <tr>
         <th width="100px">番号</th>
