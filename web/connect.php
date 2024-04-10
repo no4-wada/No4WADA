@@ -5,19 +5,19 @@ $User = $arr_ini["Login"]["User"];
 $Password = $arr_ini["Login"]["Password"];
 //接続
 try {
-    $PDO = new PDO(
+  $PDO = new PDO(
 
-        $Dsn,
+    $Dsn,
 
-        $User,
+    $User,
 
-        $Password,
+    $Password,
 
-        // レコード列名をキーとして取得させる
-        [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]
-    );
+    // レコード列名をキーとして取得させる
+    [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]
+  );
 } catch (PDOException $e) {
-    // エラー発生
-    echo $e->getMessage();
-    die();
+  // エラー発生
+  echo $e->getMessage();
+  die();
 }
