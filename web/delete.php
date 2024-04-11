@@ -39,6 +39,7 @@
     $Title = $row['Title'];
     $Text = $row['Text'];
     ?>
+   <p><a class="Title">ToDoList</a></p>
    <p>本当に削除してよろしいですか？</p>
 
    <form action="delete_action.php?Id=<?php echo $Id; ?>" method="post">

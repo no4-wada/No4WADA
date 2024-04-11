@@ -8,6 +8,7 @@
   <title>編集完了</title>
   <link rel="stylesheet" href="/style.css" type="text/css">
 </head>
+
 <?php
 // PDO接続、関数ファイルの読み込み
 require_once("connect.php");
@@ -57,7 +58,8 @@ try {
 ?>
 
 <body>
-  <h1>編集完了画面</h1>
+  <p><a class="Title">ToDoList</a></p>
+  <p>編集完了</p>
   <p>ID：<?php echo $Id ?>を編集しました。</p>
   <a href="todo_list_page.php"><span class="btn_a">TodoListへ戻る</span></a>
 </body>

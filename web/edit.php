@@ -42,7 +42,7 @@
   $Text = $row['Text'];
 
   ?>
-  <p>ToDoList</p>
+  <p><a class="Title">ToDoList</a></p>
   <form action="edit_done.php" method="post">
     <p> タイトル: <br><input type="text" class="input-area" name="Title" placeholder="title" required="required" value="<?php echo $Title; ?>"> </p>
     <p> 内容: <br><input type="text" class="input-area" name="Text" placeholder="Text" required="required" value="<?php echo $Text; ?>"> </p>

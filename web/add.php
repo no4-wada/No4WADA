@@ -10,14 +10,14 @@
 <body>
 
   <!-- 内容入力　-->
-  <h2>ToDoList</h2>
+  <p><a class="Title">ToDoList</a></p>
   <form method="post" action="add_send.php">
     <div>
-      <h2>タイトル</h2>
+      <p>タイトル</p>
     </div>
     <input type="text" name="Title" required="required">
     <div>
-      <h2> 内容</h2>
+      <p>内容</p>
     </div>
     <textarea name="Text" cols="30" rows="5" required="required"></textarea>
     <br>
