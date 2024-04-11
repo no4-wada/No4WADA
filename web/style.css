@@ -123,3 +123,9 @@ button.btn_add.btn_cubic:hover {
 button.btn_radius {
   border-radius: 100vh;
 }
+
+/*タイトル部分の処理*/
+.Title {
+   border-left: 6px solid #30beff;
+  padding-left: 8px;
+}

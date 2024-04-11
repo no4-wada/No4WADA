@@ -8,7 +8,9 @@
 </head>
 
 <body>
-  <p>ToDoList</p>
+  <p>
+    <a class="Title">ToDoList</a>
+  </p>
   <button class="btn_add btn_radius btn_cubic" onclick="location.href='add.php'">
     追加
   </button>
