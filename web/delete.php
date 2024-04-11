@@ -43,13 +43,11 @@
      <p> 内容: <?php echo escape($Text); ?></p>
      <br>
      <!-- 削除　-->
-     <input type="submit" name="remove" value="削除">
+     <input type="submit" name="remove" value="削除" class="btn_submit">
    </form>
 
    <!-- リストへ戻るボタン -->
-   <div class="btn_back">
-     <button onclick="location.href='todo_list_page.php'">いいえ</button>
-   </div>
+   <button class="btn_back" onclick="location.href='todo_list_page.php'">いいえ</button>
  </body>
 
  </html>

@@ -21,9 +21,9 @@
     </div>
     <textarea name="Text" cols="30" rows="5" required="required"></textarea>
     <br>
-    <input type="submit" value="追加">
+    <input type="submit" value="追加" class="btn_submit">
   </form>
-  <button onclick="location.href='todo_list_page.php'">TodoListへ戻る</button>
+  <button class="btn_back" onclick="location.href='todo_list_page.php'">TodoListへ戻る</button>
 
 </body>
 

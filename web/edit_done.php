@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>編集完了</title>
+  <link rel="stylesheet" href="/style.css" type="text/css">
+</head>
 <?php
 // PDO接続、関数ファイルの読み込み
 require_once("connect.php");
@@ -14,14 +24,14 @@ try {
 ?>
     <p>タイトルが20文字を超えている、もしくは使用できない文字を含んでいます。</p>
 
-    <p><a href="todo_list_page.php">TodoListへ戻る</a></p>
+    <a href="todo_list_page.php"><span class="btn_a">TodoListへ戻る</span></a>
   <?php
     exit();
   } else if ($CheckText == 0) {
   ?>
     <p> 内容が200文字を超えている、もしくは使用できない文字を含んでいます。</p>
 
-    <p><a href="todo_list_page.php">TodoListへ戻る</a></p>
+    <a href="todo_list_page.php"><span class="btn_a">TodoListへ戻る</span></a>
 <?php
     exit();
   } else {
@@ -42,21 +52,10 @@ try {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>編集完了画面</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-
 <body>
   <h1>編集完了画面</h1>
   <p>ID：<?php echo $Id ?>を編集しました。</p>
-  <p><a href="todo_list_page.php">メイン画面に戻ります。</a></p>
+  <a href="todo_list_page.php"><span class="btn_a">TodoListへ戻る</span></a>
 </body>
 
 </html>

@@ -44,9 +44,9 @@
     <p> タイトル: <br><input type="text" class="input-area" name="Title" placeholder="title" required="required" value="<?php echo $Title; ?>"> </p>
     <p> 内容: <br><input type="text" class="input-area" name="Text" placeholder="Text" required="required" value="<?php echo $Text; ?>"> </p>
     <input type="hidden" name="Id" value="<?php echo $Id; ?>">
-    <input type="submit" value="更新">
+    <input type="submit" value="更新" class="btn_submit">
   </form>
-  <button onclick="location.href='todo_list_page.php'">TodoListへ戻る</button>
+  <button class="btn_back" onclick="location.href='todo_list_page.php'">TodoListへ戻る</button>
 </body>
 
 </html>

@@ -34,7 +34,7 @@
         $PDO = null;
       }
       ?>
-     <a href="todo_list_page.php">TodoListへ戻る</a>
+     <a href="todo_list_page.php"><span class="btn_a">TodoListへ戻る</span></a>
    </body>
 
    </html>

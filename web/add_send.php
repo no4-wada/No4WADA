@@ -30,28 +30,38 @@
   $CheckTitle = check_title($Title);
 
   $CheckText = check_text($Text);
-
-  if ($CheckTitle == 0 || $CheckText == 0) {
-
-    echo '入力文字数制限を超えています。';
-    exit();
+  try {
+    if ($CheckTitle == 0) {
   ?>
-    <div class="btn-back"><button onclick="location.href='index.php'">TodoListへ戻る</button></div>
+      <p>タイトルが20文字を超えている、もしくは使用できない文字を含んでいます。</p>
 
+      <a href="todo_list_page.php"><span class="btn_a">TodoListへ戻る</span></a>
+    <?php
+      exit();
+    } else if ($CheckText == 0) {
+    ?>
+      <p> 内容が200文字を超えている、もしくは使用できない文字を含んでいます。</p>
+
+      <a href="todo_list_page.php"><span class="btn_a">TodoListへ戻る</span></a>
   <?php
-  } else {
+      exit();
+    } else {
 
-    // テーブルに登録するINSERT INTO文を変数に格納　VALUESはプレースフォルダーで空の値を入れとく            
-    $Sql = "INSERT INTO TodoList (Id, Title, Text, Created) VALUES (:Id, :Title, :Text, :Created)";
+      // テーブルに登録するINSERT INTO文を変数に格納　VALUESはプレースフォルダーで空の値を入れとく            
+      $Sql = "INSERT INTO TodoList (Id, Title, Text, Created) VALUES (:Id, :Title, :Text, :Created)";
 
-    //値が空のままSQL文をセット
-    $Stmt = $PDO->prepare($Sql);
+      //値が空のままSQL文をセット
+      $Stmt = $PDO->prepare($Sql);
 
-    // 挿入する値を配列に格納
-    $Params = array(':Id' => $Id, ':Title' => $Title, ':Text' => $Text, ':Created' => $Created);
+      // 挿入する値を配列に格納
+      $Params = array(':Id' => $Id, ':Title' => $Title, ':Text' => $Text, ':Created' => $Created);
 
-    //挿入する値が入った変数をexecuteにセットしてSQLを実行
-    $Stmt->execute($Params);
+      //挿入する値が入った変数をexecuteにセットしてSQLを実行
+      $Stmt->execute($Params);
+    }
+  } catch (PDOException $e) {
+    echo $e->getMessage();
+    die();
   }
   ?>
 
@@ -63,7 +73,7 @@
 
   <p>上記の内容をデータベースへ登録しました。</p>
 
-  <a href="todo_list_page.php">TodoListへ戻る</a>
+  <a href="todo_list_page.php"><span class="btn_a">TodoListへ戻る</span></a>
 
 </body>
 

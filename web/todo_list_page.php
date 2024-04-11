@@ -9,7 +9,9 @@
 
 <body>
   <p>ToDoList</p>
-  <button class="btn_add" onclick="location.href='add.php'">追加</button>
+  <button class="btn_add btn_radius btn_cubic" onclick="location.href='add.php'">
+    追加
+  </button>
   <br>
   <?php
   // PDO接続、関数ファイルの読み込み
@@ -61,9 +63,9 @@
           </td>
           <td>
             <div class="btn-wrp">
-              <a href="edit.php?Id=<?php echo $Row['Id']; ?>"><span class="btn_not_upd">編集</span></a>
+              <a href="edit.php?Id=<?php echo $Row['Id']; ?>"><span class="btn_not_upd btn_a">編集</span></a>
               <br>
-              <a href="delete.php?Id=<?php echo $Row['Id']; ?>"><span class="btn_del">削除</span></a>
+              <a href="delete.php?Id=<?php echo $Row['Id']; ?>"><span class="btn_del btn_a">削除</span></a>
             </div>
           </td>
         </tr>
