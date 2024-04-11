@@ -7,7 +7,7 @@ body {
 
 /*戻るリンクの設定*/
 .btn_back {
-  padding  : 7px 9px;   /* 余白 */
+  padding  : 7px 9px;   
   font-size: 15px;
 }
 
@@ -39,7 +39,7 @@ button {
     width: 90px;
     height: 50px;
     top: 57px;
-    right: 12px;
+    left: 1310px;
 }
 
 /*テーブル全体の設定*/
@@ -119,12 +119,12 @@ button.btn_add.btn_cubic:hover {
   border-bottom: 1px solid #30beff;
 }
 
-/**/
+/*追加ボタンの丸み設定*/
 button.btn_radius {
   border-radius: 100vh;
 }
 
-/*タイトル部分の処理*/
+/*タイトル部分の|の処理*/
 .Title {
    border-left: 6px solid #30beff;
   padding-left: 8px;

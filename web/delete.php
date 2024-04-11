@@ -45,13 +45,12 @@
    <form action="delete_action.php?Id=<?php echo $Id; ?>" method="post">
      <p> タイトル: <?php echo escape($Title); ?></p>
      <p> 内容: <?php echo escape($Text); ?></p>
-     <br>
      <!-- 削除　-->
      <input type="submit" name="remove" value="削除" class="btn_submit">
    </form>
 
    <!-- リストへ戻るボタン -->
-   <button class="btn_back" onclick="location.href='todo_list_page.php'">いいえ</button>
+   <a href="todo_list_page.php"><span class="btn_a">TodoListへ戻る</span></a>
  </body>
 
  </html>

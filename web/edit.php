@@ -49,7 +49,7 @@
     <input type="hidden" name="Id" value="<?php echo $Id; ?>">
     <input type="submit" value="更新" class="btn_submit">
   </form>
-  <button class="btn_back" onclick="location.href='todo_list_page.php'">TodoListへ戻る</button>
+  <a href="todo_list_page.php"><span class="btn_a">TodoListへ戻る</span></a>
 </body>
 
 </html>

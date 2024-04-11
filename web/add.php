@@ -23,7 +23,7 @@
     <br>
     <input type="submit" value="追加" class="btn_submit">
   </form>
-  <button class="btn_back" onclick="location.href='todo_list_page.php'">TodoListへ戻る</button>
+  <a href="todo_list_page.php"><span class="btn_a">TodoListへ戻る</span></a>
 
 </body>
 
