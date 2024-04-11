@@ -12,6 +12,10 @@
 // PDO接続、関数ファイルの読み込み
 require_once("connect.php");
 require_once("security.php");
+//DB接続クラスの実行
+$pdo_connect = new Connection();
+$PDO = $pdo_connect->Connecter();
+//編集したデータを取得
 $Id  = $_POST['Id'];
 $Title  = $_POST['Title'];
 $Text = $_POST['Text'];

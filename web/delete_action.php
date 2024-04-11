@@ -11,6 +11,8 @@
      <?php
       //connect.phpの読み込み
       require_once("connect.php");
+      $pdo_connect = new Connection();
+      $PDO = $pdo_connect->Connecter();
       $Id = $_GET['Id'];
       try {
         // SQL文をセット(該当idのカラムを削除する)

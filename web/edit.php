@@ -13,6 +13,9 @@
   $Id = $_GET['Id'];
   require_once("connect.php");
   require_once("security.php");
+  //DB接続クラスの実行
+  $pdo_connect = new Connection();
+  $PDO = $pdo_connect->Connecter();
   try {
 
     // Idで選択したカラムを持ってくる

@@ -13,6 +13,8 @@
   // PDO接続、関数ファイルの読み込み
   require_once("connect.php");
   require_once("security.php");
+  $pdo_connect = new Connection();
+  $PDO = $pdo_connect->Connecter();
   #<!-- DBへ接続-->
   try {
     #  <!-- クエリの実行 (Mysqlからのデータの抽出)-->
