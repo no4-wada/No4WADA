@@ -1,83 +1,65 @@
-<!DOCTYPE html>
-<html lang="ja">
+ <?php
 
-<head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="/style.css" type="text/css">
-  <title>TodoList</title>
-</head>
+  // pdo接続、関数ファイルの読み込み
+  require_once("private/ToDoListDao.php");
+  require_once("private/functions.php");
 
-<body>
-  <p><a class="Title">ToDoList</a></p>
-  <?php
-  // PDO接続、関数ファイルの読み込み
-  require_once("connect.php");
-  require_once("security.php");
-  //DB接続クラスの実行
-  $pdo_connect = new Connection();
-  $PDO = $pdo_connect->Connecter();
-  #<!-- DBへ接続-->
-  try {
-    #  <!-- クエリの実行 (Mysqlからのデータの抽出)-->
-    $Query = "SELECT * FROM TodoList";
-    $Stmt = $PDO->query($Query);
-  } catch (PDOException $e) {
-    print($e->getMessage());
-    die();
-  }
-  $Title = $_POST['Title'];
-  $Text = $_POST['Text'];
-  $Created = date('Y-m-d H:i:s');
+
+  $title = $_POST['title'];
+  $content = $_POST['content'];
+  $created = date('Y-m-d H:i:s');
 
   //バリテーション処理(入力制限)
-  $CheckTitle = check_title($Title);
+  $isValidateTitle = isValidateTitle($title);
+  $isValidateContent = isValidateContent($content);
 
-  $CheckText = check_text($Text);
-  try {
-    if ($CheckTitle == 0) {
-  ?>
-      <p>タイトルが20文字を超えている、もしくは使用できない文字を含んでいます。</p>
-
-      <a href="todo_list_page.php"><span class="btn_a">TodoListへ戻る</span></a>
-    <?php
-      exit();
-    } else if ($CheckText == 0) {
-    ?>
-      <p> 内容が200文字を超えている、もしくは使用できない文字を含んでいます。</p>
-
-      <a href="todo_list_page.php"><span class="btn_a">TodoListへ戻る</span></a>
-  <?php
-      exit();
-    } else {
-
-      // テーブルに登録するINSERT INTO文を変数に格納　VALUESはプレースフォルダーで空の値を入れとく            
-      $Sql = "INSERT INTO TodoList (Id, Title, Text, Created) VALUES (:Id, :Title, :Text, :Created)";
-
-      //値が空のままSQL文をセット
-      $Stmt = $PDO->prepare($Sql);
-
-      // 挿入する値を配列に格納
-      $Params = array(':Id' => $Id, ':Title' => $Title, ':Text' => $Text, ':Created' => $Created);
-
-      //挿入する値が入った変数をexecuteにセットしてSQLを実行
-      $Stmt->execute($Params);
-    }
-  } catch (PDOException $e) {
-    echo $e->getMessage();
-    die();
+  //DB接続クラスの実行
+  if ($isValidateTitle && $isValidateContent) {
+    $ToDoListDao = new ToDoListDao();
+    $stmt = $ToDoListDao->insert($title, $content, $created);
   }
+
   ?>
+ <!DOCTYPE html>
+ <html lang="ja">
 
-  <!--登録内容確認・メッセージ (エスケープ処理含む)-->
+ <head>
+   <meta charset="utf-8">
+   <link rel="stylesheet" href="/style.css" type="text/css">
+   <title>TodoList</title>
+ </head>
 
-  <p>タイトル: <?php echo escape($Title); ?></p>
+ <body>
+   <p class="title">ToDoList</p>
+   <?php
+    if (!$isValidateTitle) {
+    ?>
+     <p>タイトルが20文字を超えている、もしくは使用できない文字を含んでいます。</p>
 
-  <p>内容: <?php echo escape($Text); ?></p>
+     <a href="index.php"><span class="btn_a">TodoListへ戻る</span></a>
+   <?php
+      exit();
+    } else if (!$isValidateContent) {
+    ?>
+     <p> 内容が200文字を超えている、もしくは使用できない文字を含んでいます。</p>
 
-  <p>上記の内容をデータベースへ登録しました。</p>
+     <a href="index.php"><span class="btn_a">TodoListへ戻る</span></a>
+   <?php
+      exit();
+    }
 
-  <a href="todo_list_page.php"><span class="btn_a">TodoListへ戻る</span></a>
+    ?>
 
-</body>
+   <!--登録内容確認・メッセージ (エスケープ処理含む)-->
 
-</html>
+   <p>タイトル: <?php echo escape($title); ?></p>
+
+   <p>内容: <?php echo escape($content); ?></p>
+
+   <p>上記の内容をデータベースへ登録しました。</p>
+
+   <a href="index.php"><span class="btn_a">TodoListへ戻る</span></a>
+
+ </body>
+
+ </html>

@@ -1,3 +1,26 @@
+<?php
+// pdo接続、関数ファイルの読み込み
+require_once("private/ToDoListDao.php");
+require_once("private/functions.php");
+
+//編集したデータを取得
+$id  = $_POST['id'];
+$title  = $_POST['title'];
+$content = $_POST['content'];
+$updateDate = date('Y-m-d H:i:s');
+
+//エスケープ処理(入力制限)
+$isValidateTitle = isValidateTitle($title);
+$isValidateContent = isValidateContent($content);
+
+//DB接続クラスの実行
+if ($isValidateTitle && $isValidateContent) {
+  $ToDoListDao = new ToDoListDao();
+  $stmt = $ToDoListDao->update($id, $title, $content, $updateDate);
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,58 +33,29 @@
 </head>
 
 <?php
-// PDO接続、関数ファイルの読み込み
-require_once("connect.php");
-require_once("security.php");
-//DB接続クラスの実行
-$pdo_connect = new Connection();
-$PDO = $pdo_connect->Connecter();
-//編集したデータを取得
-$Id  = $_POST['Id'];
-$Title  = $_POST['Title'];
-$Text = $_POST['Text'];
-$UpdateDate = date('Y-m-d H:i:s');
-//エスケープ処理(入力制限)
-$CheckTitle = check_title($Title);
-$CheckText = check_text($Text);
-try {
-  if ($CheckTitle == 0) {
+if (!$isValidateTitle) {
 ?>
-    <p>タイトルが20文字を超えている、もしくは使用できない文字を含んでいます。</p>
+  <p>タイトルが20文字を超えている、もしくは使用できない文字を含んでいます。</p>
 
-    <a href="todo_list_page.php"><span class="btn_a">TodoListへ戻る</span></a>
-  <?php
-    exit();
-  } else if ($CheckText == 0) {
-  ?>
-    <p> 内容が200文字を超えている、もしくは使用できない文字を含んでいます。</p>
-
-    <a href="todo_list_page.php"><span class="btn_a">TodoListへ戻る</span></a>
+  <a href="index.php"><span class="btn_a">TodoListへ戻る</span></a>
 <?php
-    exit();
-  } else {
-    //該当するデータを更新する
-    $Stmt = $PDO->prepare('UPDATE TodoList SET Title = :Title, Text = :Text, Updated = :UpdateDate WHERE Id = :Id');
+  exit();
+} else if (!$isValidateContent) {
+?>
+  <p> 内容が200文字を超えている、もしくは使用できない文字を含んでいます。</p>
 
-    // 値をセット
-    $Stmt->bindValue(':Id', $Id);
-    $Stmt->bindValue(':Title', $Title);
-    $Stmt->bindValue(':Text', $Text);
-    $Stmt->bindValue(':UpdateDate', $UpdateDate);
-    // SQL実行
-    $Stmt->execute();
-  }
-} catch (PDOException $e) {
-  echo $e->getMessage();
-  die();
+  <a href="index.php"><span class="btn_a">TodoListへ戻る</span></a>
+<?php
+  exit();
 }
 ?>
 
 <body>
-  <p><a class="Title">ToDoList</a></p>
+  <p><a class="title">ToDoList</a></p>
   <p>編集完了</p>
-  <p>ID：<?php echo $Id ?>を編集しました。</p>
-  <a href="todo_list_page.php"><span class="btn_a">TodoListへ戻る</span></a>
+  <p>ID：<?php echo $id ?>を編集しました。</p>
+  <a href="index.php"><span class="btn_a">TodoListへ戻る</span></a>
 </body>
+
 
 </html>
