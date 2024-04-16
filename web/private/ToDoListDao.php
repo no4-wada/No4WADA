@@ -1,7 +1,7 @@
 <?php
 require_once("db.php");
 
-class ToDoListDao
+class toDoListDao
 {
     private $db;
     /**

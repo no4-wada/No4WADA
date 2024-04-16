@@ -15,8 +15,8 @@ $isValidateContent = isValidateContent($content);
 
 //DB接続クラスの実行
 if ($isValidateTitle && $isValidateContent) {
-  $ToDoListDao = new ToDoListDao();
-  $stmt = $ToDoListDao->update($id, $title, $content, $updateDate);
+  $toDoListDao = new toDoListDao();
+  $stmt = $toDoListDao->update($id, $title, $content, $updateDate);
 }
 
 

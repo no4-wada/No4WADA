@@ -15,8 +15,8 @@
 
   //DB接続クラスの実行
   if ($isValidateTitle && $isValidateContent) {
-    $ToDoListDao = new ToDoListDao();
-    $stmt = $ToDoListDao->insert($title, $content, $created);
+    $toDoListDao = new toDoListDao();
+    $stmt = $toDoListDao->insert($title, $content, $created);
   }
 
   ?>

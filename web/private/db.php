@@ -40,7 +40,7 @@ class db
     try {
       $stmt = $this->pdo->prepare($sql);
       $stmt->execute($params);
-      return $stmt->fetchALL(pdo::FETCH_ASSOC);
+      return $stmt->fetchAll(pdo::FETCH_ASSOC);
     } catch (PDOException $e) {
       print("データベースの接続に失敗しました" . $e->getMessage());
       die();

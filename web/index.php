@@ -5,9 +5,8 @@ require_once("private/ToDoListDao.php");
 require_once("private/functions.php");
 
 #  <!-- クエリの実行 (Mysqlへの接続)-->
-$sql = "SELECT * FROM TodoList";
-$ToDoListDao = new ToDoListDao();
-$todoList = $ToDoListDao->findAll($sql);
+$toDoListDao = new toDoListDao();
+$toDoList = $toDoListDao->findAll($sql);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -22,7 +21,7 @@ $todoList = $ToDoListDao->findAll($sql);
   <p>
     <a class="title">ToDoList</a>
   </p>
-  <a href="add.php?id=<?php echo $todo['id']; ?>">
+  <a href="add.php">
     <span class="btn_add btn_radius btn_cubic">
       追加
     </span>
@@ -43,7 +42,7 @@ $todoList = $ToDoListDao->findAll($sql);
     </thead>
     <?php
     # <!-- テーブルデータ導入処理(エスケープ処理含む) -->
-    foreach ($todoList as $todo) {
+    foreach ($toDoList as $todo) {
     ?>
       <tbody>
         <tr>

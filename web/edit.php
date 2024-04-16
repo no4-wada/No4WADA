@@ -1,3 +1,19 @@
+<?php
+
+// pdo接続、関数ファイルの読み込み
+$id = $_GET['id'];
+require_once("private/ToDoListDao.php");
+require_once("private/functions.php");
+
+//DB接続クラスの実行
+$toDoListDao = new toDoListDao();
+$dateArray = $toDoListDao->findById($id);
+foreach ($dateArray as $date) {
+  $title = $date['title'];
+  $content = $date['content'];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -8,23 +24,6 @@
 </head>
 
 <body>
-  <?php
-
-  // pdo接続、関数ファイルの読み込み
-  $id = $_GET['id'];
-  require_once("private/ToDoListDao.php");
-  require_once("private/functions.php");
-
-  //DB接続クラスの実行
-  $ToDoListDao = new ToDoListDao();
-  $stmt = $ToDoListDao->findById($id);
-  foreach ($stmt as $dateArray) {
-  }
-
-  $title = $dateArray['title'];
-  $content = $dateArray['content'];
-
-  ?>
   <p><a class="title">ToDoList</a></p>
   <form action="edit_done.php" method="post">
     <p> タイトル: <br><input type="text" class="input-area" name="title" placeholder="title" required="required" value="<?php echo $title; ?>"> </p>

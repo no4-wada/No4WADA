@@ -6,12 +6,12 @@ require_once("private/ToDoListDao.php");
 require_once("private/functions.php");
 
 //DB接続クラスの実行
-$ToDoListDao = new ToDoListDao();
-$stmt = $ToDoListDao->findById($id);
-foreach ($stmt as $dataArray) {
+$toDoListDao = new toDoListDao();
+$dataArray = $toDoListDao->findById($id);
+foreach ($dateArray as $date) {
+  $title = $date['title'];
+  $content = $date['content'];
 }
-$title = $dataArray['title'];
-$content = $dataArray['content'];
 ?>
 
 <!DOCTYPE html>
