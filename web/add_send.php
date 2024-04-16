@@ -15,7 +15,7 @@
 
   //DB接続クラスの実行
   if ($isValidTitle && $isValidContent) {
-    $toDoListDao = new toDoListDao();
+    $toDoListDao = new ToDoListDao();
     $toDoListDao->insert($title, $content, $created);
   }
 

@@ -5,7 +5,7 @@ require_once("private/ToDoListDao.php");
 require_once("private/functions.php");
 
 #  <!-- クエリの実行 (Mysqlへの接続)-->
-$toDoListDao = new toDoListDao();
+$toDoListDao = new ToDoListDao();
 $toDoList = $toDoListDao->findAll($sql);
 ?>
 <!DOCTYPE html>

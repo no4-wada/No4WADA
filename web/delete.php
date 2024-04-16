@@ -6,11 +6,11 @@ require_once("private/ToDoListDao.php");
 require_once("private/functions.php");
 
 //DB接続クラスの実行
-$toDoListDao = new toDoListDao();
-$dataArray = $toDoListDao->findById($id);
-if (count($dataArray) >= 0) {
-  $title = $dataArray[0]['title'];
-  $content = $dataArray[0]['content'];
+$toDoListDao = new ToDoListDao();
+$toDo = $toDoListDao->findById($id);
+if (count($toDo) >= 0) {
+  $title = $toDo[0]['title'];
+  $content = $toDo[0]['content'];
 }
 ?>
 

@@ -15,7 +15,7 @@ $isValidContent = isValidContent($content);
 
 //更新処理の実行
 if ($isValidTitle && $isValidContent) {
-  $toDoListDao = new toDoListDao();
+  $toDoListDao = new ToDoListDao();
   $toDoListDao->update($id, $title, $content, $updateDate);
 }
 
