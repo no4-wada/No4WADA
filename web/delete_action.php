@@ -6,7 +6,7 @@ require_once("private/ToDoListDao.php");
 //DB接続クラスの実行
 $id = $_GET['id'];
 $toDoListDao = new toDoListDao();
-$stmt = $toDoListDao->delete($id);
+$toDoListDao->delete($id);
 ?>
 <!DOCTYPE html>
 <html lang="ja">

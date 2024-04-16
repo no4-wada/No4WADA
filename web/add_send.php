@@ -10,13 +10,13 @@
   $created = date('Y-m-d H:i:s');
 
   //バリテーション処理(入力制限)
-  $isValidateTitle = isValidateTitle($title);
-  $isValidateContent = isValidateContent($content);
+  $isValidTitle = isValidTitle($title);
+  $isValidContent = isValidContent($content);
 
   //DB接続クラスの実行
-  if ($isValidateTitle && $isValidateContent) {
+  if ($isValidTitle && $isValidContent) {
     $toDoListDao = new toDoListDao();
-    $stmt = $toDoListDao->insert($title, $content, $created);
+    $toDoListDao->insert($title, $content, $created);
   }
 
   ?>
@@ -32,14 +32,14 @@
  <body>
    <p class="title">ToDoList</p>
    <?php
-    if (!$isValidateTitle) {
+    if (!$isValidTitle) {
     ?>
      <p>タイトルが20文字を超えている、もしくは使用できない文字を含んでいます。</p>
 
      <a href="index.php"><span class="btn_a">TodoListへ戻る</span></a>
    <?php
       exit();
-    } else if (!$isValidateContent) {
+    } else if (!$isValidContent) {
     ?>
      <p> 内容が200文字を超えている、もしくは使用できない文字を含んでいます。</p>
 

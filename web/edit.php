@@ -7,10 +7,10 @@ require_once("private/functions.php");
 
 //DB接続クラスの実行
 $toDoListDao = new toDoListDao();
-$dateArray = $toDoListDao->findById($id);
-foreach ($dateArray as $date) {
-  $title = $date['title'];
-  $content = $date['content'];
+$dataArray = $toDoListDao->findById($id);
+if (count($dataArray) >= 0) {
+  $title = $dataArray[0]['title'];
+  $content = $dataArray[0]['content'];
 }
 ?>
 

@@ -10,13 +10,13 @@ $content = $_POST['content'];
 $updateDate = date('Y-m-d H:i:s');
 
 //エスケープ処理(入力制限)
-$isValidateTitle = isValidateTitle($title);
-$isValidateContent = isValidateContent($content);
+$isValidTitle = isValidTitle($title);
+$isValidContent = isValidContent($content);
 
-//DB接続クラスの実行
-if ($isValidateTitle && $isValidateContent) {
+//更新処理の実行
+if ($isValidTitle && $isValidContent) {
   $toDoListDao = new toDoListDao();
-  $stmt = $toDoListDao->update($id, $title, $content, $updateDate);
+  $toDoListDao->update($id, $title, $content, $updateDate);
 }
 
 
@@ -33,14 +33,14 @@ if ($isValidateTitle && $isValidateContent) {
 </head>
 
 <?php
-if (!$isValidateTitle) {
+if (!$isValidTitle) {
 ?>
   <p>タイトルが20文字を超えている、もしくは使用できない文字を含んでいます。</p>
 
   <a href="index.php"><span class="btn_a">TodoListへ戻る</span></a>
 <?php
   exit();
-} else if (!$isValidateContent) {
+} else if (!$isValidContent) {
 ?>
   <p> 内容が200文字を超えている、もしくは使用できない文字を含んでいます。</p>
 
