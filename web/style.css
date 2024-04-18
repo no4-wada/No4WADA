@@ -1,114 +1,97 @@
-/*body全体の設定*/
+/* 複数のページ共通処理 */
+
+/* カスタムプロパティ */
+:root {
+  --border-color: #30beff;
+  --button-backgroud-color: #6bd0ff;
+}
+
+/* body全体の設定 */
 body {
     background-color: #fff;
     font-family: arial, sans-serif;
 
 }
 
-/*戻るリンクの設定*/
-.btn_back {
-  padding  : 7px 9px;   
-  font-size: 15px;
-}
-
-/*pタグの文字サイズ指定*/
+/* pタグの文字サイズ指定 */
 p {
     font-size: 30px;
     color: black;
     font-weight:bold;
 }
 
-/*ボタン全体の設定*/
+/* ボタン全体の設定 */
 button {
     color: #fff;
-    border: 1px solid #30beff;
-    background-color:#6bd0ff;
+    border: 1px solid var(--border-color);
+    background-color:var(--button-backgroud-color);
     cursor: pointer;
 }
 
-/*ボタンの配置設定*/
-.btn_wrp {
-    position: relative;
+/* Aタグリンクにつけるクラスとデータを送信するSubmitボタンにつけるクラス */
+.btn_a,
+.btn_submit {
+  display       : inline-block;
+  border-radius : 5%;          /* 角を丸くする */
+  font-size     : 15px;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 6px;   /* 余白       */
+  background    :var(--button-backgroud-color);    /* 背景色 */
+  color         : #ffffff;     /* ボタンの文字色 */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : background-color.3s;         /* なめらか変化 */
+  border        : 1px solid var(--border-color);    /* 枠の指定 */
 }
 
-/*テーブル全体の設定*/
+/* index.php */
+
+/* タイトル部分の| */
+.title {
+   border-left: 6px solid var(--border-color);
+  padding-left: 8px;
+}
+
+/* テーブル全体の設定 */
 .todo_list {
-  background-color : #6bd0ff;
-  border: 1px;
+  background-color : var(--button-backgroud-color);
+  border: 1px var(--border-color);
   font-size: 18px;
 }
 
-/*Aタグリンクにつけるクラス*/
-.btn_a {
-  display       : inline-block;
-  border-radius : 5%;          /* 角を丸くする */
-  font-size     : 12pt;        /* 文字サイズ */
-  text-align    : center;      /* 文字位置   */
-  cursor        : pointer;     /* カーソル   */
-  padding       : 6px 6px;   /* 余白       */
-  background    : #6bd0ff;     /* 背景色     */
-  color         : #ffffff;     /* 文字色     */
-  line-height   : 1em;         /* 1行の高さ  */
-  transition    : .3s;         /* なめらか変化 */
-  border        : 1px solid #30beff;    /* 枠の指定 */
-}
-
-/*データを送信するSubmitボタンにつけるクラス*/
-.btn_submit {
-  display       : inline-block;
-  border-radius : 5%;          /* 角丸       */
-  font-size     : 12pt;        /* 文字サイズ */
-  cursor        : pointer;     /* カーソル   */
-  padding       : 8px 10px;   /* 余白       */
-  background    : #6bd0ff;     /* 背景色     */
-  color         : #ffffff;     /* 文字色     */
-  line-height   : 1em;         /* 1行の高さ  */
-  transition    : .3s;         /* なめらか変化 */
-  border        : 1px solid #30beff;    /* 枠の指定 */
-}
-
-/*テーブル上にマウスがあると色が変わる処理*/
-.todo_list tr td:hover {
-	background-color: #d9efff;
-}
-
-/*テーブルのヘッダーの文字設定*/
+/* テーブルのヘッダーの文字設定 */
 th {
     color : #fff;
 }
 
-/*テーブルの見出しの設定*/
+/* テーブルの見出しの設定 */
 tr {
   height: 36px;
   text-align: center;
-  background-color:#30beff;
+  background-color:var(--border-color);
 }
 
-/*テーブルデータ部分の設定*/
+/* テーブルデータ部分の設定 */
 td {
     background-color:#ffffff;
     text-align : center;
 }
 
-/*内容部分の設定*/
+/* テーブル上にマウスがあると色が変わる処理 */
+.todo_list tr td:hover {
+  background-color: #d9efff;
+}
+
+/* td部分の設定 */
 .left {
     text-align : left;
 }
 
-/*メイン画面の追加ボタン設定*/
-span.btn_add.btn_cubic {
-  
-  border-bottom: 5px solid #0ea3e7;
-  cursor: pointer;
-  background-color:#30beff;
-  color : #fff;
-  text-align    : center;      /* 文字位置   */
-}
-
-/*追加ボタンの設定*/
+/* 追加ボタンの設定 */
 .btn_add {
     font-size: 18px;
     font-weight:bold;
+    color: #fff;
     position: absolute;
     width: 90px;
     height: 55px;
@@ -117,21 +100,24 @@ span.btn_add.btn_cubic {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    /* メイン画面の追加ボタン設定 */
+    &.btn_cubic {
+      border-bottom: 5px solid var(--border-color);
+      cursor: pointer;
+      background-color:var(--button-backgroud-color);
+      text-align : center; 
+      
+      /* 追加ボタン上にカーソルがあるときの処理 */
+      &:hover {
+         margin-top: 2px;
+      border-bottom: 1px solid var(--border-color);
+      }
+    }
 }
 
-/*追加ボタン上にカーソルがあるときの処理*/
-span.btn_add.btn_cubic:hover {
-  margin-top: 2px;
-  border-bottom: 1px solid #30beff;
-}
-
-/*追加ボタンの丸み設定*/
+/* 追加ボタンの丸み設定 */
 span.btn_radius {
   border-radius: 100vh;
 }
 
-/*タイトル部分の|の処理*/
-.title {
-   border-left: 6px solid #30beff;
-  padding-left: 8px;
-}
