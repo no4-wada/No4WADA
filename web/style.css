@@ -31,14 +31,14 @@ a,
 /* Aタグリンクにつけるクラスとデータを送信するSubmitボタンにつけるクラス */
 .btn_a,
 .btn_submit {
-  display       : inline-block;
-  border-radius : 5%;          /* 角を丸くする */
-  font-size     : 15px;        /* 文字サイズ */
-  padding       : 6px;   /* 余白       */
-  background    :var(--button-background-color);    /* 背景色 */
-  line-height   : 1em;         /* 1行の高さ  */
-  transition    : background-color.3s;         /* なめらか変化 */
-  border        : 1px solid var(--border-color);    /* 枠の指定 */
+  display         : inline-block;
+  border-radius   : 5%;          /* 角を丸くする */
+  font-size       : 15px;        /* 文字サイズ */
+  padding         : 6px;   /* 余白       */
+  background-color:var(--button-background-color);    /* 背景色 */
+  line-height     : 1em;         /* 1行の高さ  */
+  transition      : background-color.3s;         /* なめらか変化 */
+  border          : 1px solid var(--border-color);    /* 枠の指定 */
 }
 
 /* index.php */
