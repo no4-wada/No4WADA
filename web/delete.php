@@ -31,7 +31,7 @@ if (count($toDo) >= 0) {
     <p> タイトル: <?php echo escape($title); ?></p>
     <p> 内容: <?php echo escape($content); ?></p>
     <!-- 削除　-->
-    <input type="submit" name="remove" value="削除" class="btn_submit">
+    <input type="submit" name="remove" value="削除" class="btn btn_submit">
   </form>
 
   <!-- リストへ戻るボタン -->

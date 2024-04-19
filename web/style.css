@@ -3,14 +3,13 @@
 /* カスタムプロパティ */
 :root {
   --border-color: #30beff;
-  --button-backgroud-color: #6bd0ff;
+  --button-background-color: #6bd0ff;
+  --letter-white: #fff;
 }
 
 /* body全体の設定 */
 body {
-    background-color: #fff;
     font-family: arial, sans-serif;
-
 }
 
 /* pタグの文字サイズ指定 */
@@ -20,12 +19,13 @@ p {
     font-weight:bold;
 }
 
-/* ボタン全体の設定 */
-button {
-    color: #fff;
-    border: 1px solid var(--border-color);
-    background-color:var(--button-backgroud-color);
-    cursor: pointer;
+/* aタグ全体,データを送信するinputボタンのクラス */
+a,
+.btn {
+  color: var(--letter-white);
+  font-weight   : bold;
+  text-align    : center;      
+  cursor        : pointer;     
 }
 
 /* Aタグリンクにつけるクラスとデータを送信するSubmitボタンにつけるクラス */
@@ -34,11 +34,8 @@ button {
   display       : inline-block;
   border-radius : 5%;          /* 角を丸くする */
   font-size     : 15px;        /* 文字サイズ */
-  text-align    : center;      /* 文字位置   */
-  cursor        : pointer;     /* カーソル   */
   padding       : 6px;   /* 余白       */
-  background    :var(--button-backgroud-color);    /* 背景色 */
-  color         : #ffffff;     /* ボタンの文字色 */
+  background    :var(--button-background-color);    /* 背景色 */
   line-height   : 1em;         /* 1行の高さ  */
   transition    : background-color.3s;         /* なめらか変化 */
   border        : 1px solid var(--border-color);    /* 枠の指定 */
@@ -48,33 +45,33 @@ button {
 
 /* タイトル部分の| */
 .title {
-   border-left: 6px solid var(--border-color);
+  color: #000;
+  border-left: 6px solid var(--border-color);
   padding-left: 8px;
 }
 
 /* テーブル全体の設定 */
 .todo_list {
-  background-color : var(--button-backgroud-color);
+  background-color : var(--button-background-color);
   border: 1px var(--border-color);
   font-size: 18px;
+  text-align : center;
 }
 
 /* テーブルのヘッダーの文字設定 */
 th {
-    color : #fff;
+    color : var(--letter-white);
 }
 
 /* テーブルの見出しの設定 */
 tr {
   height: 36px;
-  text-align: center;
   background-color:var(--border-color);
 }
 
 /* テーブルデータ部分の設定 */
 td {
-    background-color:#ffffff;
-    text-align : center;
+    background-color:var(--letter-white);
 }
 
 /* テーブル上にマウスがあると色が変わる処理 */
@@ -90,8 +87,6 @@ td {
 /* 追加ボタンの設定 */
 .btn_add {
     font-size: 18px;
-    font-weight:bold;
-    color: #fff;
     position: absolute;
     width: 90px;
     height: 55px;
@@ -100,13 +95,11 @@ td {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color:var(--button-background-color);
 
     /* メイン画面の追加ボタン設定 */
     &.btn_cubic {
       border-bottom: 5px solid var(--border-color);
-      cursor: pointer;
-      background-color:var(--button-backgroud-color);
-      text-align : center; 
       
       /* 追加ボタン上にカーソルがあるときの処理 */
       &:hover {
@@ -116,8 +109,8 @@ td {
     }
 }
 
-/* 追加ボタンの丸み設定 */
+/* 追加ボタンの角の丸み設定 */
 span.btn_radius {
-  border-radius: 100vh;
+  border-radius: 20px;
 }
 

@@ -29,7 +29,7 @@ if (count($toDo) >= 0) {
     <p> タイトル: <br><input type="text" class="input-area" name="title" placeholder="title" required="required" value="<?php echo $title; ?>"> </p>
     <p> 内容: <br><input type="text" class="input-area" name="content" placeholder="text" required="required" value="<?php echo $content; ?>"> </p>
     <input type="hidden" name="id" value="<?php echo $id; ?>">
-    <input type="submit" value="更新" class="btn_submit">
+    <input type="submit" value="更新" class="btn btn_submit">
   </form>
   <a href="index.php"><span class="btn_a">TodoListへ戻る</span></a>
 </body>

@@ -62,9 +62,9 @@ $toDoList = $toDoListDao->findAll($sql);
             <?php echo $todo["updated"] ?>
           </td>
           <td>
-            <a href="edit.php?id=<?php echo $todo['id']; ?>"><span class="btn_not_upd btn_a">編集</span></a>
+            <a href="edit.php?id=<?php echo $todo['id']; ?>"><span class="btn_a">編集</span></a>
             <br>
-            <a href="delete.php?id=<?php echo $todo['id']; ?>"><span class="btn_del btn_a">削除</span></a>
+            <a href="delete.php?id=<?php echo $todo['id']; ?>"><span class="btn_a">削除</span></a>
           </td>
         </tr>
       </tbody>
